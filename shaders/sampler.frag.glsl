@@ -87,7 +87,7 @@ vec3 normSphere(vec3 point, vec4 sphere) {
 float intersectScene(vec3 rayOrigin, vec3 rayDirection, inout vec3 hitPoint, inout vec3 norm, inout vec4 material) {
 	vec4 spheres[3] = vec4[3](
 		vec4(0.0,0.0,1.0, 0.5),
-		vec4(cos(time/1000.0)*0.5,sin(time/1000.0)*0.5,0.7, 0.1),
+		vec4(0.2,0.4,0.7, 0.1),
 		vec4(0.0,2.5,1.0, 2.0)
 	);
 	vec4 materials[3] = vec4[3](
@@ -115,7 +115,7 @@ float intersectScene(vec3 rayOrigin, vec3 rayDirection, inout vec3 hitPoint, ino
 	return closestDist;
 }
 
-out vec4 clr;
+out vec4 pixel;
 void main(void) {
 	float seed = coord.x + coord.y * 3.43121412313 + time/294.529562;
 
@@ -129,20 +129,22 @@ void main(void) {
 	vec4 material;
 	while(true) {
 		float dist = intersectScene(rayOrigin, rayDirection, rayOrigin, norm, material);
-		rayDirection = randHemiSphereAroundNormal(norm,seed);
+		if(dist==infinity) break;
 		color = color * material.xyz;
 		if(material.w>0.0) {
-			clr = vec4(color,1.0);
+			pixel = vec4(color,1.0);
 			return;
 		}
 
-		float prob = 0.5;
+		float prob = 0.7;
 
 		if(hash3(seed).x>prob) break;
 		color = color / prob;
+
+		rayDirection = randHemiSphereAroundNormal(norm,seed);
 	}
 
 
 
-	clr = vec4(vec3(0.0),1.0);
+	pixel = vec4(vec3(0.0),1.0);
 }

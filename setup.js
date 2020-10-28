@@ -31,7 +31,28 @@ const createProgram = (gl, vertShader, fragShader)=>{
 	return program;
 };
 
+
+
+const createTexture = (gl,textureType, width, height, internalFormat, format, type)=>{
+	let texture = gl.createTexture();
+	
+	gl.bindTexture(textureType, texture);
+	gl.texImage2D(textureType, 0, internalFormat, width, height, 0, format, type, null);
+	
+	gl.texParameteri(textureType, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+	gl.texParameteri(textureType, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+	gl.texParameteri(textureType, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+	gl.texParameteri(textureType, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+
+	return texture;
+};
+
 const setup = async(canvas, gl, state)=>{
+	gl.getExtension("EXT_float_blend");
+	gl.getExtension("EXT_color_buffer_float");
+
+
+
 	let vertices = [
 		-1.0, 1.0, 0.0,
 		 1.0,-1.0, 0.0,
@@ -47,12 +68,12 @@ const setup = async(canvas, gl, state)=>{
 
 	/*================ Shaders ====================*/
 
-	let vertShader = compileShader(gl, gl.VERTEX_SHADER, await (await fetch("./shader.vert.glsl")).text());
+	let vertShader = compileShader(gl, gl.VERTEX_SHADER, await (await fetch("./shaders/sampler.vert.glsl")).text());
 
-	let fragShader = compileShader(gl, gl.FRAGMENT_SHADER, await (await fetch("./shader.frag.glsl")).text());
+	let fragShader = compileShader(gl, gl.FRAGMENT_SHADER, await (await fetch("./shaders/sampler.frag.glsl")).text());
 
-	let shaderProgram = createProgram(gl, vertShader, fragShader);
-	gl.useProgram(shaderProgram);
+	state.samplerProgram = createProgram(gl, vertShader, fragShader);
+	gl.useProgram(state.samplerProgram);
 
 	/*======= Associating shaders to buffer objects =======*/
 
@@ -60,15 +81,39 @@ const setup = async(canvas, gl, state)=>{
 
 	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, index_buffer);
 
-	let coord = gl.getAttribLocation(shaderProgram, "coordinates");
+	let coord = gl.getAttribLocation(state.samplerProgram, "coordinates");
 
 	gl.vertexAttribPointer(coord, 3, gl.FLOAT, false, 0, 0); 
 
 	gl.enableVertexAttribArray(coord);
 
 
+	state.timeLoc = gl.getUniformLocation(state.samplerProgram, "time");
 
-	state.time = gl.getUniformLocation(shaderProgram, "time");
+
+
+	state.sampleFramebuffer = gl.createFramebuffer();
+
+	state.sampleTexture = createTexture(gl, gl.TEXTURE_2D, gl.drawingBufferWidth, gl.drawingBufferHeight, gl.RGBA32F, gl.RGBA, gl.FLOAT)
+
+	gl.bindFramebuffer(gl.FRAMEBUFFER, state.sampleFramebuffer);
+	gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, state.sampleTexture, 0);
+
+
+
+	let filterVertShader = compileShader(gl, gl.VERTEX_SHADER, await (await fetch("./shaders/filter.vert.glsl")).text());
+
+	let filterFragShader = compileShader(gl, gl.FRAGMENT_SHADER, await (await fetch("./shaders/filter.frag.glsl")).text());
+	state.filterProgram = createProgram(gl, filterVertShader, filterFragShader);
+	gl.useProgram(state.filterProgram);
+	state.sampleCountLoc = gl.getUniformLocation(state.filterProgram, "sampleCount");
+	gl.uniform2f(gl.getUniformLocation(state.filterProgram, "resolution"), canvas.width, canvas.height);
+
+
+
+	state.sampleCount = 0;
+
+	console.log("setup finished");
 };
 
 export default setup;

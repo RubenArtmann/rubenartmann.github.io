@@ -3,6 +3,7 @@ import render from "./render.js";
 
 const canvas = document.querySelector("canvas");
 const gl = canvas.getContext("webgl2");
+window.gl = gl;
 
 let state = {};
 
@@ -17,9 +18,9 @@ const draw = ()=>{
 	window.requestAnimationFrame(draw);
 };
 const resize = ()=>{
-	canvas.width  = window.innerWidth;
-	canvas.height  = window.innerHeight;
-	draw();
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
 };
 window.addEventListener("resize",resize);
-setup(canvas, gl, state).then(resize);
+resize();
+setup(canvas, gl, state).then(draw);
