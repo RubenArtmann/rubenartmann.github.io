@@ -17,8 +17,11 @@ const sample = (canvas, gl, state)=>{
 	gl.drawElements(gl.TRIANGLES, state.indices.length, gl.UNSIGNED_SHORT,0);
 };
 const render = (canvas, gl, state)=>{
-	sample(canvas, gl, state);
-	state.sampleCount++;
+	let start = performance.now();
+	while(performance.now()-start < 1) {
+		sample(canvas, gl, state);
+		state.sampleCount++;
+	}
 
 	gl.useProgram(state.filterProgram);
 	gl.bindFramebuffer(gl.FRAMEBUFFER, null/*drawing buffer*/);
