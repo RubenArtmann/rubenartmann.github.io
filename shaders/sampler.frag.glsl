@@ -119,7 +119,7 @@ out vec4 pixel;
 void main(void) {
 	float seed = coord.x + coord.y * 3.43121412313 + time/294.529562;
 
-	vec3 rayOrigin = coord;
+	vec3 rayOrigin = vec3(coord.xy, -10.0);
 	vec3 rayDirection = vec3(0.0, 0.0, 1.0);
 
 	vec3 color = vec3(1.0);
@@ -130,11 +130,13 @@ void main(void) {
 	while(true) {
 		float dist = intersectScene(rayOrigin, rayDirection, rayOrigin, norm, material);
 		if(dist==infinity) break;
-		color = color * material.xyz;
 		if(material.w>0.0) {
-			pixel = vec4(color,1.0);
+			pixel = vec4(color * material.xyz,1.0);
 			return;
 		}
+		// cosine importance sampling / cost???
+		float cost = dot(-rayDirection,norm);
+		color = cost * color * material.xyz;
 
 		float prob = 0.7;
 
