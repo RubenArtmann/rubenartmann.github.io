@@ -18,8 +18,9 @@ const sample = (canvas, gl, state)=>{
 };
 const render = (canvas, gl, state)=>{
 	let start = performance.now();
-	while(performance.now()-start < 1) {
+	while(performance.now()-start < 1000/30) {
 		sample(canvas, gl, state);
+		gl.finish()
 		state.sampleCount++;
 	}
 
