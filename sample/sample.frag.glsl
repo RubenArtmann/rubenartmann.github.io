@@ -1,9 +1,44 @@
 #version 300 es
 precision highp float;
 
-#include ./shaders/const.glsl
-#include ./shaders/camera.glsl
+//settings
+#define PATH_PROPABILITY_EXPRESSION pathlength<=3?1.0:1.0/float(pathlength)
+#define NEXT_EVENT_ESTIMATION
+#define ENABLE_HACKED_NEXT_EVENT_ESTIMATION
+#define DIRECT_SAMPLES 4
 
+#define AMBIENT_LIGHT vec3(0.8,1.0,1.0)*0.3
+
+
+//constants
+const float INFINITY = 9999999999.0;
+const float EPSILON = 0.0001;
+const float PI = 3.141592653589793;
+const float TAU = 2.0*PI;vec3 rayDirFromCameraPlane(vec3 coord, vec2 resolution, vec2 offset) {
+	vec2 pixelPos = coord.xy * resolution*0.5 + offset;
+	vec2 cameraPlanePos = pixelPos / (resolution.x*0.5);
+	vec3 cameraPlaneWorldPos = vec3(cameraPlanePos, 1.0 / tanh(PI*0.5));
+	return normalize(cameraPlaneWorldPos);
+}
+vec2 cameraPlaneFromRayDir(vec3 dir, vec2 resolution, vec2 offset) {
+	vec3 cameraPlaneWorldPos = dir / dir.z / tanh(PI*0.5);
+	vec2 cameraPlanePos = cameraPlaneWorldPos.xy;
+	vec2 pixelPos = cameraPlanePos * resolution.x*0.5;
+	vec2 coord = (pixelPos-offset) / (resolution*0.5);
+	return coord;
+}
+
+
+	// vec2 pixelPos = coord.xy * resolution*0.5 + offset;
+	// vec2 cameraPlanePos = pixelPos / (resolution.x*0.5);
+	// vec3 cameraPlaneWorldPos = vec3(cameraPlanePos, 1.0 / tanh(PI*0.5));
+	// return normalize(cameraPlaneWorldPos);
+
+	// vec3 cameraPlaneWorldPos = dir / dir.z * 1.0 / tanh(PI*0.5);
+	// vec2 cameraPlanePos = cameraPlaneWorldPos.xy;
+	// vec2 pixelPos = cameraPlanePos * resolution.x*0.5;
+	// vec2 coord = (pixelPos-offset) / (resolution*0.5);
+	// return coord;
 in vec3 coord;
 uniform float time;
 uniform vec2 resolution;
@@ -51,8 +86,96 @@ vec3 cosWeightedRandomHemisphereDirection( const vec3 n, inout float seed ) {
 	return normalize(rr);
 }
 
-#include ./shaders/scene.glsl
 
+
+
+float intersectSphere(vec3 rayOrigin, vec3 rayDirection, vec4 sphere) {
+	// p² = r
+	// p = o+t*d
+	// (o+t*d)² = r
+	// o² + 2*o*d*t + (t*d)² = r
+	// d²*t² + 2*o*d*t + o²-r = 0
+
+	vec3 o = rayOrigin - sphere.xyz;
+
+	// a = d²
+	float a = dot(rayDirection,rayDirection);
+	// b = 2*o*d
+	float b = 2.0*dot(o,rayDirection);
+	// c = o²-r
+	float c = dot(o,o)-sphere.w*sphere.w;
+
+	// delta = b² - 4ac
+	float delta = b*b - 4.0*a*c;
+	// t = (-b+-sqrt(delta))/2a
+	if(delta<0.0) return INFINITY;
+	float inv2a = 1.0/(2.0*a);
+	if(delta==0.0) {
+		float dist = -b*inv2a;
+		if(dist<0.0) return INFINITY;
+		return dist;
+	}
+	float sqrtDelta = sqrt(delta);
+	float t1 = (-b+sqrtDelta)*inv2a;
+	float t2 = (-b-sqrtDelta)*inv2a;
+	float dist = t1>t2?t2:t1;
+	if(dist<0.0) return INFINITY;
+	return dist;
+}
+vec3 normSphere(vec3 point, vec4 sphere) {
+	return (point-sphere.xyz)/sphere.w;
+}
+
+#define LIGHT_COUNT 3
+vec4 lights[LIGHT_COUNT] = vec4[LIGHT_COUNT](
+	vec4(50.0,50.0,-100.0, 3.0),//sun
+	vec4(-0.4,-0.8,-0.3, 0.3),
+	vec4(0.2,0.4,-0.3, 0.1)
+);
+#define SPHERE_COUNT 8
+vec4 spheres[SPHERE_COUNT] = vec4[SPHERE_COUNT](
+	vec4(50.0,50.0,-100.0, 3.0),//sun
+	vec4(-0.4,-0.8,0.3, 0.3),
+	vec4(0.2,0.4,-0.3, 0.1),
+	vec4(0.0,0.0,0.0, 0.5),
+	vec4(-2.5,0.0,0.0, 2.0),//left
+	vec4(0.0,2.5,0.0, 2.0),//up
+	vec4(2.5,0.0,0.0, 2.0),//right
+	vec4(0.0,0.0,10.5, 10.0)//,//bottom
+	// vec4(0.0,0.0,-11.0, 10.0)//top
+);
+vec4 materials[SPHERE_COUNT] = vec4[SPHERE_COUNT](
+	vec4(vec3(1.0,1.0,0.5)*1000.0,1.0),//sun
+	vec4(vec3(1.0,1.0,2.0)*8.0,1.0),
+	vec4(vec3(1.0)*3.0,1.0),
+	vec4(1.0,1.0,1.0,0.0),
+	vec4(1.0,0.5,0.5,0.0),//left
+	vec4(0.5,1.0,0.5,0.0),//up
+	vec4(0.5,0.5,1.0,0.0),//right
+	vec4(1.0,1.0,1.0,0.0)//,//bottom
+	// vec4(1.0,1.0,1.0,0.0)//top
+);
+
+float intersectScene(vec3 rayOrigin, vec3 rayDirection, inout vec3 hitPoint, inout vec3 norm, inout vec4 material) {
+	int closest = -1;
+	float closestDist = INFINITY;
+	for(int i=0; i<SPHERE_COUNT; i++) {
+		float dist = intersectSphere(rayOrigin, rayDirection, spheres[i]);
+		if(dist<closestDist) {
+			closest = i;
+			closestDist = dist;
+			material = materials[i];
+			hitPoint = rayOrigin + rayDirection*(closestDist-EPSILON);
+			norm = normSphere(hitPoint, spheres[i]);
+		}
+	}
+	if(closest<0) {
+		norm = vec3(0.0);
+		material = vec4(AMBIENT_LIGHT,0.3);
+		return closestDist;
+	}
+	return closestDist;
+}
 vec3 nextEventEstimation(vec3 rayOrigin, vec3 norm, inout float seed) {
 	#ifdef ENABLE_HACKED_NEXT_EVENT_ESTIMATION
 	vec3 light = vec3(0.0);
@@ -80,7 +203,7 @@ vec3 nextEventEstimation(vec3 rayOrigin, vec3 norm, inout float seed) {
 		vec4 material;
 		intersectScene(rayOrigin, newDir, scratch, scratch, material);
 		//assume no overlap between lights
-		if(material != materials[i]) {
+		if(material == materials[i]) {
 			float cost = dot(newDir,norm);
 			if(cost>0.0) {
 				light += material.xyz * areaFraction * 2.0 * cost * PI;
