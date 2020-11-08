@@ -10,6 +10,7 @@ export const setup = async(canvas, gl, state)=>{
 	filterState.program = gl_utils.createProgram(gl, filterVertShader, filterFragShader);
 	gl.useProgram(filterState.program);
 	filterState.sampleCountLoc = gl.getUniformLocation(filterState.program, "sampleCount");
+	filterState.sampleTextureLoc = gl.getUniformLocation(filterState.program, "sampleTexture");
 	gl.uniform2f(gl.getUniformLocation(filterState.program, "resolution"), gl.drawingBufferWidth, gl.drawingBufferHeight);
 
 	return filterState;

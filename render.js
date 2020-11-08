@@ -4,8 +4,8 @@ import { filter } from "./filter/filter.render.js";
 
 const getInput = (state)=>{
 	let pos = new Float32Array(state.camera.position);
-	pos[0] = Math.sin(performance.now()/10000);
-	pos[1] = Math.cos(performance.now()/10000);
+	pos[0] = Math.sin(performance.now()/1000);
+	pos[1] = Math.cos(performance.now()/1000);
 	return {
 		position: pos
 	};
@@ -20,7 +20,7 @@ const render = (canvas, gl, state)=>{
 
 	// sample
 	let start = performance.now();
-	while(performance.now()-start < 1000/60) {
+	while(performance.now()-start < 1000/30) {
 		sample(canvas, gl, state);
 		gl.finish()
 		state.sampleCount++;

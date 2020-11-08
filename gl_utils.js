@@ -32,9 +32,11 @@ export const createProgram = (gl, vertShader, fragShader)=>{
 };
 
 
-
+let textureUnitCount = 0;
 export const createTexture = (gl,textureType, width, height, internalFormat, format, type)=>{
+	gl.activeTexture(gl.TEXTURE0 + textureUnitCount);
 	let texture = gl.createTexture();
+	texture.textureUnit = textureUnitCount;
 	
 	gl.bindTexture(textureType, texture);
 	gl.texImage2D(textureType, 0, internalFormat, width, height, 0, format, type, null);
@@ -43,6 +45,44 @@ export const createTexture = (gl,textureType, width, height, internalFormat, for
 	gl.texParameteri(textureType, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
 	gl.texParameteri(textureType, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
 	gl.texParameteri(textureType, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+	
+	textureUnitCount++;
 
 	return texture;
 };
+
+
+
+
+
+export class SwapFrameBuffer {
+	constructor(gl, width, height) {
+		this.gl = gl;
+
+		this.front = {};
+		this.front.frameBuffer = gl.createFramebuffer();
+		this.back = {};
+		this.back.frameBuffer = gl.createFramebuffer();
+
+		this.resize(width,height);
+	}
+	resize(width, height) {
+		const gl = this.gl;
+
+		this.width = width;
+		this.height = height;
+
+		this.front.frameBufferTexture = createTexture(gl, gl.TEXTURE_2D, width, height, gl.RGBA32F, gl.RGBA, gl.FLOAT);
+		gl.bindFramebuffer(gl.FRAMEBUFFER, this.front.frameBuffer);
+		gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, this.front.frameBufferTexture, 0);
+
+		this.back.frameBufferTexture = createTexture(gl, gl.TEXTURE_2D, width, height, gl.RGBA32F, gl.RGBA, gl.FLOAT);
+		gl.bindFramebuffer(gl.FRAMEBUFFER, this.back.frameBuffer);
+		gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, this.back.frameBufferTexture, 0);
+	}
+	swap() {
+		let temp = this.front;
+		this.front = this.back;
+		this.back = temp;
+	}
+}

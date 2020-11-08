@@ -56,41 +56,39 @@ vec3 cosWeightedRandomHemisphereDirection( const vec3 n, inout float seed ) {
 vec3 nextEventEstimation(vec3 rayOrigin, vec3 norm, inout float seed) {
 	#ifdef ENABLE_HACKED_NEXT_EVENT_ESTIMATION
 	vec3 light = vec3(0.0);
-	for(int i=0; i<DIRECT_SAMPLES; i++) {
-		for(int i=0; i<LIGHT_COUNT; i++) {
-			vec4 sphere = lights[i];
-			vec3 vector = sphere.xyz-rayOrigin;
-			vec3 dir = normalize(vector);
+	for(int i=0; i<LIGHT_COUNT; i++) {
+		vec4 sphere = lights[i];
+		vec3 vector = sphere.xyz-rayOrigin;
+		vec3 dir = normalize(vector);
 
-			float area = PI*sphere.w*sphere.w;// approx for large distances
-			float areaFraction = area/(4.0*PI*dot(vector,vector));
+		float area = PI*sphere.w*sphere.w;// approx for large distances
+		float areaFraction = area/(4.0*PI*dot(vector,vector));
 
-			// vec3 vx = cross(dir,vec3(0.0,0.0,1.0));
-			// vec3 vy = cross(dir,vx);
-			vec3 vx,vy;
-			branchlessONB(dir,vx,vy);
+		// vec3 vx = cross(dir,vec3(0.0,0.0,1.0));
+		// vec3 vy = cross(dir,vx);
+		vec3 vx,vy;
+		branchlessONB(dir,vx,vy);
 
-			// point on circle
-			float t = 2.0*PI*hash1(seed);
-			float u = hash1(seed)+hash1(seed);
-			float r = (u>1.0?2.0-u:u)*sphere.w;
+		// point on circle
+		float t = 2.0*PI*hash1(seed);
+		float u = hash1(seed)+hash1(seed);
+		float r = (u>1.0?2.0-u:u)*sphere.w;
 
-			vec3 pointOnSphereCrosssectionRelativeToRayOrigin = vector + vx*r*cos(t)+vy*r*sin(t);
-			vec3 newDir = normalize(pointOnSphereCrosssectionRelativeToRayOrigin);
-			vec3 scratch = vec3(0.0);
-			vec4 material;
-			intersectScene(rayOrigin, newDir, scratch, scratch, material);
-			//assume no overlap between lights
-			if(material.w>0.5) {
-				float cost = dot(newDir,norm);
-				if(cost>0.0) {
-					light += material.xyz * areaFraction * 2.0 * cost * PI;
-				}
+		vec3 pointOnSphereCrosssectionRelativeToRayOrigin = vector + vx*r*cos(t)+vy*r*sin(t);
+		vec3 newDir = normalize(pointOnSphereCrosssectionRelativeToRayOrigin);
+		vec3 scratch = vec3(0.0);
+		vec4 material;
+		intersectScene(rayOrigin, newDir, scratch, scratch, material);
+		//assume no overlap between lights
+		if(material != materials[i]) {
+			float cost = dot(newDir,norm);
+			if(cost>0.0) {
+				light += material.xyz * areaFraction * 2.0 * cost * PI;
 			}
 		}
 	}
 
-	return light / float(LIGHT_COUNT) / float(DIRECT_SAMPLES);
+	return light / float(LIGHT_COUNT);
 	#endif
 
 

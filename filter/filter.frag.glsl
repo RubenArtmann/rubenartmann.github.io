@@ -1,6 +1,6 @@
 precision highp float;
 
-uniform sampler2D texture;
+uniform sampler2D sampleTexture;
 uniform vec2 resolution;
 uniform float sampleCount;
 
@@ -15,6 +15,6 @@ vec3 clampWithDesaturation(vec3 color) {
 }
 
 void main() {
-	vec3 color = texture2D(texture, gl_FragCoord.xy / resolution).xyz / sampleCount;
-	gl_FragColor = vec4(clampWithDesaturation(color),1.0);
+	vec4 pixel = texture2D(sampleTexture, gl_FragCoord.xy / resolution);
+	gl_FragColor = vec4(clampWithDesaturation(pixel.xyz / pixel.w),1.0);
 }

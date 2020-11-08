@@ -1,8 +1,6 @@
 export const sample = (canvas, gl, state)=>{
 	gl.useProgram(state.sample.program);
-	gl.bindFramebuffer(gl.FRAMEBUFFER, state.sampleFramebuffer);
-
-	gl.bindTexture(gl.TEXTURE_2D, state.sampleTexture);
+	gl.bindFramebuffer(gl.FRAMEBUFFER, state.sampleSwapFrameBuffer.front.frameBuffer);
 
 	// gl.clearColor(0,0,0, 1);
 
