@@ -1,6 +1,8 @@
 import { serve } from "https://deno.land/std@0.74.0/http/server.ts";
 
-const server = serve({ hostname: "localhost", port: 8080 });
+const server = serve({ hostname: "0.0.0.0", port: 8080 });
+
+const reloadNumber = Math.random().toString();
 
 const MEDIA_TYPES: Record<string, string> = {
   ".md": "text/markdown",
@@ -19,15 +21,38 @@ const MEDIA_TYPES: Record<string, string> = {
   ".mjs": "application/javascript",
 };
 
+const processGlslFile = (src: string)=>{
+	let results = src.match(/#include (.+)\n/g);
+	if(results === null) return src;
+	for (let i = 0; i < results.length; ++i) {
+		let path = (results[i].match(/#include (.+)\n/)as string[])[1];
+		let buf = Deno.readFileSync(path);
+		let file = (new TextDecoder).decode(buf);
+		src = src.replace(results[i], processGlslFile(file));
+	}
+	return src;
+};
+
 for await (const request of server) {
 	let url = "."+request.url;
 	if(url.match(/\/$/)) url += "index.html";
+
+	if(url === "./reload-number") {
+		request.respond({ status: 200, body: reloadNumber });
+		continue;
+	}
+
 	Deno.readFile(url).then((result:Uint8Array)=>{
 		const headers = new Headers();
-		const contentTypeValue = MEDIA_TYPES[(url.match(/\.[^.]+$/)||[".txt"])[0]];
+		const ext = (url.match(/\.[^.]+$/)||[".txt"])[0];
+		const contentTypeValue = MEDIA_TYPES[ext];
 		headers.set("content-type", contentTypeValue);
+		if(ext === ".glsl") {
+			result = processGlslFile((new TextDecoder).decode(result)) as unknown as Uint8Array;
+		}
 		request.respond({ status: 200, body: result, headers: headers });
 	}).catch(()=>{
+		console.log("404:",url);
 		request.respond({ status: 404, body: "" });
 	})
 }

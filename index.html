@@ -8,18 +8,46 @@
 			margin: 0px;
 			overflow: hidden;
 		}
+		canvas {
+			width: 100%;
+			width: 100%;
+		}
 		.debug {
 			position: absolute;
-			background-color: rgba(255,255,255,0.5);
+			margin: 3px;
+			padding: 3px;
+			background-color: rgba(20,20,20,0.5);
+			border: 1px solid rgba(20,20,20,0.3);
+			border-radius: 5px;
+			color: #fff;
+			font-family: monospace;
+			white-space: pre-line;
+			font-size: 2em;
 		}
 		.debug * {
 			display: inline;
 		}
 	</style>
+	<script type="text/javascript">
+		(async()=>{
+			let number = await (await fetch("reload-number")).text();
+			let interval = setInterval(async()=>{
+				try {
+					let n = await (await fetch("reload-number")).text();
+					if(n !== number) {
+						document.location = document.location;
+						clearInterval(interval);
+					}
+				} catch(e) {
+					console.error(e);
+				}
+			},500);
+		})()
+	</script>
 </head>
 <body>
-	<div class="debug">
-		deltaTime: <div id="deltaTime"></div>
+	<div class="debug">deltaTime: <div id="deltaTime"></div>ms
+		spp: <div id="spp"></div>spp
 	</div>
 	<canvas></canvas>
 	<script type="module" src="./main.js"></script>
