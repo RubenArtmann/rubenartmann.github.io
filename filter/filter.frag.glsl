@@ -10,7 +10,7 @@ vec3 clampWithDesaturation(vec3 color) {
 	for(int i=0; i<3; i++) {
 		if(color[i]>1.0) sat = min(sat,(luma-1.0)/(luma-color[i]));
 	}
-	sat = min(1.0,max(sat,0.0));
+	sat = clamp(sat,0.0,1.0);
 	return (color-luma) * sat + luma;
 }
 

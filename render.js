@@ -1,46 +1,32 @@
-const sample = (canvas, gl, state)=>{
-	gl.useProgram(state.samplerProgram);
-	gl.bindFramebuffer(gl.FRAMEBUFFER, state.sampleFramebuffer);
+import { reproject } from "./reproject/reproject.render.js";
+import { sample } from "./sample/sample.render.js";
+import { filter } from "./filter/filter.render.js";
 
-	// gl.clearColor(0,0,0, 1);
-
-	// gl.clear(gl.COLOR_BUFFER_BIT);
-
-	gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-
-	gl.enable(gl.BLEND);
-	gl.blendFunc(gl.ONE, gl.ONE);
-
-
-	gl.uniform1f(state.timeLoc, performance.now());
-
-	gl.drawElements(gl.TRIANGLES, state.indices.length, gl.UNSIGNED_SHORT,0);
+const getInput = (state)=>{
+	let pos = new Float32Array(state.camera.position);
+	pos[0] = Math.sin(performance.now()/10000);
+	pos[1] = Math.cos(performance.now()/10000);
+	return {
+		position: pos
+	};
 };
+
 const render = (canvas, gl, state)=>{
+	// get input / new camera
+	let newCamera = getInput(state);
+
+	// transform to new camera
+	reproject(canvas,gl,state,newCamera);
+
+	// sample
 	let start = performance.now();
-	while(performance.now()-start < 1000/30) {
+	while(performance.now()-start < 1000/60) {
 		sample(canvas, gl, state);
 		gl.finish()
 		state.sampleCount++;
 	}
 
-	gl.useProgram(state.filterProgram);
-	gl.bindFramebuffer(gl.FRAMEBUFFER, null/*drawing buffer*/);
-
-	gl.bindTexture(gl.TEXTURE_2D, state.sampleTexture);
-
-	gl.clearColor(1, 1, 1, 1);
-	gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
-
-	gl.enable(gl.DEPTH_TEST);
-	gl.disable(gl.BLEND);
-
-	gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-
-
-	gl.uniform1f(state.sampleCountLoc, state.sampleCount);
-
-
-	gl.drawElements(gl.TRIANGLES, state.indices.length, gl.UNSIGNED_SHORT,0);
+	// render to screen
+	filter(canvas,gl,state);
 };
 export default render;
