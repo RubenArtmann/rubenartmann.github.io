@@ -12,6 +12,8 @@ const getInput = (state)=>{
 };
 
 const render = (canvas, gl, state)=>{
+	let start = performance.now();
+	
 	// get input / new camera
 	let newCamera = getInput(state);
 
@@ -19,7 +21,6 @@ const render = (canvas, gl, state)=>{
 	reproject(canvas,gl,state,newCamera);
 
 	// sample
-	let start = performance.now();
 	while(performance.now()-start < 1000/30) {
 		sample(canvas, gl, state);
 		gl.finish()

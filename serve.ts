@@ -43,16 +43,24 @@ for await (const request of server) {
 	}
 
 	Deno.readFile(url).then((result:Uint8Array)=>{
+		let src = (new TextDecoder).decode(result);
 		const headers = new Headers();
 		const ext = (url.match(/\.[^.]+$/)||[".txt"])[0];
 		const contentTypeValue = MEDIA_TYPES[ext];
 		headers.set("content-type", contentTypeValue);
 		if(ext === ".glsl") {
-			result = processGlslFile((new TextDecoder).decode(result)) as unknown as Uint8Array;
+			src = processGlslFile(src);
 		}
-		request.respond({ status: 200, body: result, headers: headers });
-	}).catch(()=>{
-		console.log("404:",url);
+
+		// let path = "./output/"+url.slice(2);
+		// console.log(path.split("/").slice(0,-1).join("/"))
+		// Deno.mkdirSync(path.split("/").slice(0,-1).join("/"), { recursive: true });
+		// Deno.writeTextFileSync(path,src);
+		// console.log(path)
+
+		request.respond({ status: 200, body: src, headers: headers });
+	}).catch((e)=>{
+		console.log("404:",url,e);
 		request.respond({ status: 404, body: "" });
 	})
 }

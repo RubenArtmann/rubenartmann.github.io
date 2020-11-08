@@ -34,6 +34,12 @@ vec2 hash2( inout float seed ) {
 	return vec2(rz.xy & uvec2(0x7fffffffU))/float(0x7fffffff);
 }
 
+vec4 textureClampToBlack(sampler2D tex, vec2 coord) {
+	vec4 p = texture(tex,coord);
+	if((coord.x>=1.0||coord.x<0.0||coord.y>=1.0||coord.y<0.0) && p.w>1.0) p /= p.w;
+	return p;
+}
+
 out vec4 outColor;
 
 void main() {
@@ -52,20 +58,20 @@ void main() {
 	vec2 oldCameraPlane = cameraPlaneFromRayDir(oldDir,resolution,offset);
 
 	intersectScene(oldCameraPos, oldDir, worldPos, normTest, materialTest);
-	if(material != materialTest || dot(norm,normTest)<0.001) {
+	if(material != materialTest || dot(norm,normTest)<0.01) {
 		outColor = vec4(0.0,0.0,0.0,0.0);
 		return;
 	}
 
-	vec4 pixel = texture(sampleTexture, oldCameraPlane.xy*0.5+0.5);
+	vec4 pixel = textureClampToBlack(sampleTexture, oldCameraPlane.xy*0.5+0.5);
 
-	float r = 1.5;
+	float r = 2.5;
 	float a = hash1(seed)*TAU;
 	offset = vec2(sin(a),cos(a))*r;
 	vec3 rayDirectionTest = rayDirFromCameraPlane(coord,resolution,offset+vec2(0.5));
 	intersectScene(newCameraPos, rayDirectionTest, worldPos, normTest, materialTest);
 	if(material != materialTest || dot(norm,normTest)<0.99) {
-		pixel /= pixel.w / 3.0;
+		if(pixel.w>=1.0) pixel /= pixel.w / 0.1;
 	}
 
 	pixel *= 0.9;

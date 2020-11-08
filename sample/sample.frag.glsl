@@ -80,7 +80,7 @@ vec3 nextEventEstimation(vec3 rayOrigin, vec3 norm, inout float seed) {
 		vec4 material;
 		intersectScene(rayOrigin, newDir, scratch, scratch, material);
 		//assume no overlap between lights
-		if(material != materials[i]) {
+		if(material == materials[i]) {
 			float cost = dot(newDir,norm);
 			if(cost>0.0) {
 				light += material.xyz * areaFraction * 2.0 * cost * PI;
