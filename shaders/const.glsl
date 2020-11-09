@@ -2,9 +2,9 @@
 #define PATH_PROPABILITY_EXPRESSION pathlength<=3?1.0:1.0/float(pathlength)
 #define NEXT_EVENT_ESTIMATION
 #define ENABLE_HACKED_NEXT_EVENT_ESTIMATION
-#define DIRECT_SAMPLES 4
+#define DIRECT_SAMPLES 8
 
-#define AMBIENT_LIGHT vec3(0.5,0.5,0.3)*0.3
+#define AMBIENT_LIGHT vec3(0.8,1.0,1.0)*0.3
 
 
 //constants

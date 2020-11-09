@@ -38,16 +38,18 @@ vec3 normSphere(vec3 point, vec4 sphere) {
 	return (point-sphere.xyz)/sphere.w;
 }
 
-#define LIGHT_COUNT 2
+#define LIGHT_COUNT 3
 vec4 lights[LIGHT_COUNT] = vec4[LIGHT_COUNT](
+	vec4(50.0,50.0,-100.0, 3.0),//sun
 	vec4(-0.4,-0.8,-0.3, 0.3),
 	vec4(0.2,0.4,-0.3, 0.1)
 );
-#define SPHERE_COUNT 7
+#define SPHERE_COUNT 8
 vec4 spheres[SPHERE_COUNT] = vec4[SPHERE_COUNT](
-	vec4(0.0,0.0,0.0, 0.5),
+	vec4(50.0,50.0,-100.0, 3.0),//sun
 	vec4(-0.4,-0.8,0.3, 0.3),
 	vec4(0.2,0.4,-0.3, 0.1),
+	vec4(0.0,0.0,0.0, 0.5),
 	vec4(-2.5,0.0,0.0, 2.0),//left
 	vec4(0.0,2.5,0.0, 2.0),//up
 	vec4(2.5,0.0,0.0, 2.0),//right
@@ -55,9 +57,10 @@ vec4 spheres[SPHERE_COUNT] = vec4[SPHERE_COUNT](
 	// vec4(0.0,0.0,-11.0, 10.0)//top
 );
 vec4 materials[SPHERE_COUNT] = vec4[SPHERE_COUNT](
-	vec4(1.0,1.0,1.0,0.0),
+	vec4(vec3(1.0,1.0,0.5)*1000.0,1.0),//sun
 	vec4(vec3(1.0,1.0,2.0)*8.0,1.0),
 	vec4(vec3(1.0)*3.0,1.0),
+	vec4(1.0,1.0,1.0,0.0),
 	vec4(1.0,0.5,0.5,0.0),//left
 	vec4(0.5,1.0,0.5,0.0),//up
 	vec4(0.5,0.5,1.0,0.0),//right

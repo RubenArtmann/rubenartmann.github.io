@@ -3,9 +3,9 @@ import * as gl_utils from "../gl_utils.js";
 export const setup = async(canvas, gl, state)=>{
 	let sampleState = {};
 
-	let vertShader = gl_utils.compileShader(gl, gl.VERTEX_SHADER, await (await fetch("./sample/sample.vert.glsl")).text());
+	let vertShader = gl_utils.compileShader(gl, gl.VERTEX_SHADER, await gl_utils.downloadAndPreprocessGLSL("./sample/sample.vert.glsl"));
 
-	let fragShader = gl_utils.compileShader(gl, gl.FRAGMENT_SHADER, await (await fetch("./sample/sample.frag.glsl")).text());
+	let fragShader = gl_utils.compileShader(gl, gl.FRAGMENT_SHADER, await gl_utils.downloadAndPreprocessGLSL("./sample/sample.frag.glsl"));
 
 	sampleState.program = gl_utils.createProgram(gl, vertShader, fragShader);
 	gl.useProgram(sampleState.program);
