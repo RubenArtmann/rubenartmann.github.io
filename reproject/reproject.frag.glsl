@@ -12,6 +12,8 @@ uniform float time;
 
 uniform vec3 oldCameraPos;
 uniform vec3 newCameraPos;
+uniform vec3 oldCameraRot;
+uniform vec3 newCameraRot;
 
 #include ./shaders/scene.glsl
 #include ./shaders/camera.glsl
@@ -47,7 +49,7 @@ void main() {
 
 	vec2 offset = hash2(seed);
 
-	vec3 rayDirection = rayDirFromCameraPlane(coord,resolution,offset);
+	vec3 rayDirection = rayDirFromCameraPlane(coord.xy,resolution,offset,newCameraRot);
 	vec3 worldPos;
 	vec3 norm;
 	vec3 normTest;
@@ -55,10 +57,10 @@ void main() {
 	vec4 materialTest;
 	intersectScene(newCameraPos, rayDirection, worldPos, norm, material);
 	vec3 oldDir = normalize(worldPos-oldCameraPos);
-	vec2 oldCameraPlane = cameraPlaneFromRayDir(oldDir,resolution,offset);
+	vec2 oldCameraPlane = cameraPlaneFromRayDir(oldDir,resolution,offset,oldCameraRot);
 
 	intersectScene(oldCameraPos, oldDir, worldPos, normTest, materialTest);
-	if(material != materialTest || dot(norm,normTest)<0.01) {
+	if(material != materialTest || dot(norm,normTest)<0.99) {
 		outColor = vec4(0.0,0.0,0.0,0.0);
 		return;
 	}
@@ -68,7 +70,7 @@ void main() {
 	float r = 2.5;
 	float a = hash1(seed)*TAU;
 	offset = vec2(sin(a),cos(a))*r;
-	vec3 rayDirectionTest = rayDirFromCameraPlane(coord,resolution,offset+vec2(0.5));
+	vec3 rayDirectionTest = rayDirFromCameraPlane(coord.xy,resolution,offset+vec2(0.5),newCameraRot);
 	intersectScene(newCameraPos, rayDirectionTest, worldPos, normTest, materialTest);
 	if(material != materialTest || dot(norm,normTest)<0.99) {
 		if(pixel.w>=1.0) pixel /= pixel.w / 0.1;

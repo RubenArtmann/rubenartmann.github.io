@@ -18,6 +18,8 @@ export const setup = async(canvas, gl, state)=>{
 	console.log(reprojectState.program,reprojectState.timeLoc)
 	reprojectState.oldCameraPosLoc = gl.getUniformLocation(reprojectState.program, "oldCameraPos");
 	reprojectState.newCameraPosLoc = gl.getUniformLocation(reprojectState.program, "newCameraPos");
+	reprojectState.oldCameraRotLoc = gl.getUniformLocation(reprojectState.program, "oldCameraRot");
+	reprojectState.newCameraRotLoc = gl.getUniformLocation(reprojectState.program, "newCameraRot");
 	reprojectState.sampleCountLoc = gl.getUniformLocation(reprojectState.program, "sampleCount");
 	reprojectState.resolutionLoc = gl.getUniformLocation(reprojectState.program, "resolution");
 	gl.uniform2f(reprojectState.resolutionLoc, gl.drawingBufferWidth, gl.drawingBufferHeight);

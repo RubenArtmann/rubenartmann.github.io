@@ -41,7 +41,8 @@ const setup = async(canvas, gl, state)=>{
 	state.sampleCount = 0;
 
 	state.camera = {
-		position: new Float32Array([0,0,-5])
+		position: new Float32Array([0,0,5]),
+		rotation: new Float32Array([0,0,0])
 	};
 
 	console.log("setup finished",state);

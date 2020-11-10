@@ -8,6 +8,7 @@ in vec3 coord;
 uniform float time;
 uniform vec2 resolution;
 uniform vec3 cameraPos;
+uniform vec3 cameraRot;
 
 // from https://github.com/FoxelFox/voxel-octree/blob/master/src/render/pipeline/v2/node/rt-chunk-node/rt-chunk-node.fs.glsl
 uint baseHash( uvec2 p ) {
@@ -113,7 +114,7 @@ void main(void) {
 
 
 	vec3 rayOrigin = cameraPos;
-	vec3 rayDirection = rayDirFromCameraPlane(coord,resolution,hash2(seed)-0.5);
+	vec3 rayDirection = rayDirFromCameraPlane(coord.xy,resolution,hash2(seed)-0.5,cameraRot);
 
 	vec3 color = vec3(1.0,1.0,1.0);
 

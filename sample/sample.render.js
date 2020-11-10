@@ -13,6 +13,7 @@ export const sample = (canvas, gl, state)=>{
 
 
 	gl.uniform3f(state.sample.cameraPosLoc, ...state.camera.position);
+	gl.uniform3f(state.sample.cameraRotLoc, ...state.camera.rotation);
 	gl.uniform1f(state.sample.timeLoc, performance.now());
 
 	gl.drawElements(gl.TRIANGLES, state.indices.length, gl.UNSIGNED_SHORT,0);
