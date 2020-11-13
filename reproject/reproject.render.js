@@ -22,6 +22,8 @@ export const reproject = (canvas, gl, state, newCamera)=>{
 
 		gl.uniform3f(state.reproject.oldCameraPosLoc, ...state.camera.position);
 		gl.uniform3f(state.reproject.newCameraPosLoc, ...newCamera.position);
+		gl.uniform3f(state.reproject.oldCameraRotLoc, ...state.camera.rotation);
+		gl.uniform3f(state.reproject.newCameraRotLoc, ...newCamera.rotation);
 		gl.uniform1f(state.reproject.timeLoc, performance.now());
 		gl.uniform1f(state.reproject.sampleCountLoc, state.sampleCount);
 		gl.drawElements(gl.TRIANGLES, state.indices.length, gl.UNSIGNED_SHORT,0);
