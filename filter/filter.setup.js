@@ -4,9 +4,9 @@ export const setup = async(canvas, gl, state)=>{
 
 	let filterState = {};
 
-	let filterVertShader = gl_utils.compileShader(gl, gl.VERTEX_SHADER, await (await fetch("./filter/filter.vert.glsl")).text());
+	let filterVertShader = gl_utils.compileShader(gl, gl.VERTEX_SHADER, await gl_utils.downloadAndPreprocessGLSL("./filter/filter.vert.glsl"));
 
-	let filterFragShader = gl_utils.compileShader(gl, gl.FRAGMENT_SHADER, await (await fetch("./filter/filter.frag.glsl")).text());
+	let filterFragShader = gl_utils.compileShader(gl, gl.FRAGMENT_SHADER, await gl_utils.downloadAndPreprocessGLSL("./filter/filter.frag.glsl"));
 	filterState.program = gl_utils.createProgram(gl, filterVertShader, filterFragShader);
 	gl.useProgram(filterState.program);
 	filterState.sampleCountLoc = gl.getUniformLocation(filterState.program, "sampleCount");

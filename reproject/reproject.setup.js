@@ -3,9 +3,9 @@ import * as gl_utils from "../gl_utils.js";
 export const setup = async(canvas, gl, state)=>{
 	let reprojectState = {};
 
-	let reprojectVertShader = gl_utils.compileShader(gl, gl.VERTEX_SHADER, await (await fetch("./reproject/reproject.vert.glsl")).text());
+	let reprojectVertShader = gl_utils.compileShader(gl, gl.VERTEX_SHADER, await gl_utils.downloadAndPreprocessGLSL("./reproject/reproject.vert.glsl"));
 
-	let reprojectFragShader = gl_utils.compileShader(gl, gl.FRAGMENT_SHADER, await (await fetch("./reproject/reproject.frag.glsl")).text());
+	let reprojectFragShader = gl_utils.compileShader(gl, gl.FRAGMENT_SHADER, await gl_utils.downloadAndPreprocessGLSL("./reproject/reproject.frag.glsl"));
 
 	reprojectState.program = gl_utils.createProgram(gl, reprojectVertShader, reprojectFragShader);
 	gl.useProgram(reprojectState.program);

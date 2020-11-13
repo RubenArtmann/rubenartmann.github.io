@@ -48,9 +48,9 @@ for await (const request of server) {
 		const ext = (url.match(/\.[^.]+$/)||[".txt"])[0];
 		const contentTypeValue = MEDIA_TYPES[ext];
 		headers.set("content-type", contentTypeValue);
-		if(ext === ".glsl") {
-			src = processGlslFile(src);
-		}
+		// if(ext === ".glsl") {
+		// 	src = processGlslFile(src);
+		// }
 
 		// let path = "./output/"+url.slice(2);
 		// console.log(path.split("/").slice(0,-1).join("/"))

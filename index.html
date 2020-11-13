@@ -29,25 +29,29 @@
 		}
 	</style>
 	<script type="text/javascript">
-		(async()=>{
-			let number = await (await fetch("reload-number")).text();
-			let interval = setInterval(async()=>{
-				try {
-					let n = await (await fetch("reload-number")).text();
-					if(n !== number) {
-						document.location = document.location;
-						clearInterval(interval);
+		if(document.domain === "localhost") {
+			(async()=>{
+				let number = await (await fetch("reload-number")).text();
+				let interval = setInterval(async()=>{
+					try {
+						let n = await (await fetch("reload-number")).text();
+						if(n !== number) {
+							document.location = document.location;
+							clearInterval(interval);
+						}
+					} catch(e) {
+						console.error(e);
 					}
-				} catch(e) {
-					console.error(e);
-				}
-			},500);
-		})()
+				},500);
+			})()
+		}
 	</script>
 </head>
 <body>
 	<div class="debug">deltaTime: <div id="deltaTime"></div>ms
 		spp: <div id="spp"></div>spp
+		move: wasd
+		look: arrow keys
 	</div>
 	<canvas></canvas>
 	<script type="module" src="./main.js"></script>

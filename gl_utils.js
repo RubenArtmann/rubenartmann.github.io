@@ -1,9 +1,12 @@
-export const createBuffer = (gl, bufferType, array)=>{
-	let buffer = gl.createBuffer();
-	gl.bindBuffer(bufferType, buffer);
-	gl.bufferData(bufferType, array, gl.STATIC_DRAW);
-	gl.bindBuffer(bufferType, null);
-	return buffer;
+export const downloadAndPreprocessGLSL = async(path)=>{
+	let src = await(await fetch(path)).text();
+	let results = src.match(/#include (.+)\n/g);
+	if(results === null) return src;
+	for (let i = 0; i < results.length; ++i) {
+		let subPath = results[i].match(/#include (.+)\n/)[1];
+		src = src.replace(results[i], await downloadAndPreprocessGLSL(subPath));
+	}
+	return src;
 };
 
 export const compileShader = (gl, shaderType, src)=>{
@@ -18,6 +21,14 @@ export const compileShader = (gl, shaderType, src)=>{
 		throw new Error(error);
 	}
 	return shader;
+};
+
+export const createBuffer = (gl, bufferType, array)=>{
+	let buffer = gl.createBuffer();
+	gl.bindBuffer(bufferType, buffer);
+	gl.bufferData(bufferType, array, gl.STATIC_DRAW);
+	gl.bindBuffer(bufferType, null);
+	return buffer;
 };
 
 export const createProgram = (gl, vertShader, fragShader)=>{
