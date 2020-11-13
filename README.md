@@ -1,4 +1,4 @@
 # rubenartmann.github.io
-WARNING: causes chrome hang (and take down your video driver with it)
+WARNING: causes chrome to hang (and take your video driver down with it)
 
 [view](https://rubenartmann.github.io)
