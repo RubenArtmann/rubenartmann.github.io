@@ -52,8 +52,8 @@ export const createTexture = (gl,textureType, width, height, internalFormat, for
 	gl.bindTexture(textureType, texture);
 	gl.texImage2D(textureType, 0, internalFormat, width, height, 0, format, type, null);
 	
-	gl.texParameteri(textureType, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
-	gl.texParameteri(textureType, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+	gl.texParameteri(textureType, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+	gl.texParameteri(textureType, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
 	gl.texParameteri(textureType, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
 	gl.texParameteri(textureType, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
 	

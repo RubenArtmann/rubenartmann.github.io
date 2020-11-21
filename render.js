@@ -11,37 +11,39 @@ window.addEventListener("keyup",(e)=>{
 	keyboard.set(e.code,false);
 });
 
-const getInput = (state)=>{
+const getInput = (state,lastDeltaTime)=>{
 	let pos = new Float32Array(state.camera.position);
 	let rot = new Float32Array(state.camera.rotation);
 	// pos[0] = Math.sin(performance.now()/1000);
 	// pos[1] = Math.cos(performance.now()/1000);
-	let dt = 1/30;
-	if(keyboard.get("ArrowUp")) rot[1]+=dt;
-	if(keyboard.get("ArrowDown")) rot[1]-=dt;
-	if(keyboard.get("ArrowRight")) rot[2]+=dt;
-	if(keyboard.get("ArrowLeft")) rot[2]-=dt;
+	let dt = lastDeltaTime/1000;
+	let distance = dt*2;
+	let angleDistance = dt;
+	if(keyboard.get("ArrowUp")) rot[1]+=angleDistance;
+	if(keyboard.get("ArrowDown")) rot[1]-=angleDistance;
+	if(keyboard.get("ArrowRight")) rot[2]+=angleDistance;
+	if(keyboard.get("ArrowLeft")) rot[2]-=angleDistance;
 
 	let a = rot[2];
 
 	if(keyboard.get("KeyW")) {
-		pos[1]+=dt*3*Math.cos(a);
-		pos[0]+=dt*3*Math.sin(a);
+		pos[1]+=distance*Math.cos(a);
+		pos[0]+=distance*Math.sin(a);
 	}
 	if(keyboard.get("KeyS")) {
-		pos[1]-=dt*3*Math.cos(a);
-		pos[0]-=dt*3*Math.sin(a);
+		pos[1]-=distance*Math.cos(a);
+		pos[0]-=distance*Math.sin(a);
 	}
 	if(keyboard.get("KeyA")) {
-		pos[0]-=dt*3*Math.cos(a);
-		pos[1]-=dt*3*-Math.sin(a);
+		pos[0]-=distance*Math.cos(a);
+		pos[1]-=distance*-Math.sin(a);
 	}
 	if(keyboard.get("KeyD")) {
-		pos[0]+=dt*3*Math.cos(a);
-		pos[1]+=dt*3*-Math.sin(a);
+		pos[0]+=distance*Math.cos(a);
+		pos[1]+=distance*-Math.sin(a);
 	}
-	if(keyboard.get("ShiftLeft")) pos[2]-=dt*3;
-	if(keyboard.get("Space")) pos[2]+=dt*3;
+	if(keyboard.get("ShiftLeft")) pos[2]-=distance;
+	if(keyboard.get("Space")) pos[2]+=distance;
 
 	return {
 		position: pos,
@@ -49,11 +51,12 @@ const getInput = (state)=>{
 	};
 };
 
+let lastDeltaTime = 1000/30;
 const render = (canvas, gl, state)=>{
 	let start = performance.now();
 
 	// get input / new camera
-	let newCamera = getInput(state);
+	let newCamera = getInput(state,lastDeltaTime);
 
 	// transform to new camera
 	reproject(canvas,gl,state,newCamera);
@@ -67,5 +70,6 @@ const render = (canvas, gl, state)=>{
 
 	// render to screen
 	filter(canvas,gl,state);
+	lastDeltaTime = performance.now()-start;
 };
 export default render;

@@ -8,6 +8,7 @@ import { setup as setupFilter } from "./filter/filter.setup.js";
 
 const setup = async(canvas, gl, state)=>{
 	gl.getExtension("EXT_color_buffer_float");
+	gl.getExtension('OES_texture_float_linear');
 	gl.getExtension("EXT_float_blend");
 
 

@@ -36,8 +36,9 @@
 					try {
 						let n = await (await fetch("reload-number")).text();
 						if(n !== number) {
-							document.location = document.location;
+							window.state.camera = null;
 							clearInterval(interval);
+							document.location = document.location;
 						}
 					} catch(e) {
 						console.error(e);

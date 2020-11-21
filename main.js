@@ -112,8 +112,8 @@ const draw = ()=>{
 	window.requestAnimationFrame(draw);
 };
 const resize = ()=>{
-	canvas.width = window.innerWidth/1;
-	canvas.height = window.innerHeight/1;
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
 };
 window.addEventListener("resize",resize);
 resize();

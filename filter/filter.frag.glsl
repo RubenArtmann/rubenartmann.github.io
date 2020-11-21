@@ -4,6 +4,8 @@ uniform sampler2D sampleTexture;
 uniform vec2 resolution;
 uniform float sampleCount;
 
+#include ./shaders/const.glsl
+
 vec3 clampWithDesaturation(vec3 color) {
 	float sat = 1.0;
 	float luma = dot(color,vec3(0.299,0.587,0.114));
@@ -16,5 +18,8 @@ vec3 clampWithDesaturation(vec3 color) {
 
 void main() {
 	vec4 pixel = texture2D(sampleTexture, gl_FragCoord.xy / resolution);
-	gl_FragColor = vec4(clampWithDesaturation(pixel.xyz / pixel.w),1.0);
+	vec3 color = pixel.xyz / pixel.w;
+	color *= BRIGHTNESS;
+	color = clampWithDesaturation(color);
+	gl_FragColor = vec4(color,1.0);
 }
