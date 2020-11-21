@@ -36,8 +36,9 @@
 					try {
 						let n = await (await fetch("reload-number")).text();
 						if(n !== number) {
-							document.location = document.location;
+							window.state.camera = null;
 							clearInterval(interval);
+							document.location = document.location;
 						}
 					} catch(e) {
 						console.error(e);
@@ -50,6 +51,7 @@
 <body>
 	<div class="debug">deltaTime: <div id="deltaTime"></div>ms
 		spp: <div id="spp"></div>spp
+		sppVelocity: <div id="sppVelocity"></div>sppps
 		move: wasd
 		look: arrow keys
 	</div>

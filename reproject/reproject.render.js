@@ -15,7 +15,7 @@ export const reproject = (canvas, gl, state, newCamera)=>{
 
 
 		gl.disable(gl.BLEND);
-		gl.clearColor(0, 0, 0, 0);
+		// gl.clearColor(0, 0, 0, 0);
 		gl.clear(gl.COLOR_BUFFER_BIT);
 		// state.sampleCount = 0;
 
@@ -29,6 +29,8 @@ export const reproject = (canvas, gl, state, newCamera)=>{
 		gl.drawElements(gl.TRIANGLES, state.indices.length, gl.UNSIGNED_SHORT,0);
 
 		state.sampleSwapFrameBuffer.swap();
+
+		if(state.sampleCount>5) state.sampleCount = 5;
 	}
 
 	state.camera = newCamera;

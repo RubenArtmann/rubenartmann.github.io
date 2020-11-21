@@ -103,17 +103,13 @@ window.state = state;
 
 const draw = ()=>{
 	// c.clearRect(0,0,canvas.width,canvas.height);
-	let start = performance.now();
 	render(canvas, gl, state);
 
-	let deltaTime = performance.now() - start;
-	document.querySelector("#deltaTime").innerHTML = deltaTime;
-	document.querySelector("#spp").innerHTML = state.sampleCount;
 	window.requestAnimationFrame(draw);
 };
 const resize = ()=>{
-	canvas.width = window.innerWidth/1;
-	canvas.height = window.innerHeight/1;
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
 };
 window.addEventListener("resize",resize);
 resize();

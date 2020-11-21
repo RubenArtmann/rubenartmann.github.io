@@ -5,28 +5,14 @@ precision highp float;
 #include ./shaders/camera.glsl
 
 in vec3 coord;
+uniform sampler2D sampleTexture;
 uniform float time;
+uniform float sampleCount;
 uniform vec2 resolution;
 uniform vec3 cameraPos;
 uniform vec3 cameraRot;
 
-// from https://github.com/FoxelFox/voxel-octree/blob/master/src/render/pipeline/v2/node/rt-chunk-node/rt-chunk-node.fs.glsl
-uint baseHash( uvec2 p ) {
-	p = 1103515245U*((p >> 1U)^(p.yx));
-	uint h32 = 1103515245U*((p.x)^(p.y>>3U));
-	return h32^(h32 >> 16);
-}
-// from https://github.com/FoxelFox/voxel-octree/blob/master/src/render/pipeline/v2/node/rt-chunk-node/rt-chunk-node.fs.glsl
-float hash1( inout float seed ) {
-	uint n = baseHash(floatBitsToUint(vec2(seed+=.1,seed+=.1)));
-	return float(n)/float(0xffffffffU);
-}
-// from https://github.com/FoxelFox/voxel-octree/blob/master/src/render/pipeline/v2/node/rt-chunk-node/rt-chunk-node.fs.glsl
-vec2 hash2( inout float seed ) {
-	uint n = baseHash(floatBitsToUint(vec2(seed+=.1,seed+=.1)));
-	uvec2 rz = uvec2(n, n*48271U);
-	return vec2(rz.xy & uvec2(0x7fffffffU))/float(0x7fffffff);
-}
+#include ./shaders/random.glsl
 
 //https://graphics.pixar.com/library/OrthonormalB/paper.pdf
 void branchlessONB(vec3 n, inout vec3 b1, inout vec3 b2){
@@ -61,6 +47,8 @@ vec3 nextEventEstimation(vec3 rayOrigin, vec3 norm, inout float seed) {
 		vec4 sphere = lights[i];
 		vec3 vector = sphere.xyz-rayOrigin;
 		vec3 dir = normalize(vector);
+
+		if(acos(dot(dir,norm))>PI*0.5+atan(sphere.w,length(vector))) continue;
 
 		float area = PI*sphere.w*sphere.w;// approx for large distances
 		float areaFraction = area/(4.0*PI*dot(vector,vector));
@@ -106,11 +94,22 @@ vec3 nextEventEstimation(vec3 rayOrigin, vec3 norm, inout float seed) {
 	return sum / float(DIRECT_SAMPLES);
 }
 
-out vec4 pixel;
-void main(void) {
-	float seed = coord.x + (coord.y+937.8310762)*coord.y * 3.43121412313 + time/294.529562;
+vec4 resampleScreenBuffer(vec3 pos) {
+	vec3 dir = normalize(cameraPos-pos);
+	vec2 cameraPlane = cameraPlaneFromRayDir(dir,resolution,vec2(0.0),cameraRot);
+	vec3 norm = vec3(0.0);
+	vec4 material = vec4(0.0);
+	vec3 testPos = vec3(0.0);
+	float dist = intersectScene(cameraPos, dir, testPos, norm, material);
+	if(testPos == pos) {
+		return vec4(texture(sampleTexture,cameraPlane*0.5+0.5).xyz,1.0);
+	}
+	return vec4(0.0);
+}
+
+vec3 sampleScene(float seed) {
 	
-	pixel = vec4(vec3(0.0,0.0,0.0),1.0);
+	vec3 result = vec3(0.0);
 
 
 	vec3 rayOrigin = cameraPos;
@@ -131,15 +130,22 @@ void main(void) {
 			if(material.w>0.5 && pathlength>1) break;
 			// break;
 			#endif
-			pixel.xyz += color * material.xyz;
-			return;
+			result += color * material.xyz;
+			return result;
 		}
+
+		vec4 resampleResult = resampleScreenBuffer(rayOrigin);
+		if(resampleResult.w>0.0) {
+			color *= 0.5;
+			result += color * resampleResult.xyz;
+		}
+
 		color = color * material.xyz;
 
 		float prob = PATH_PROPABILITY_EXPRESSION;
 
 		#ifdef NEXT_EVENT_ESTIMATION
-		pixel.xyz += color * nextEventEstimation(rayOrigin,norm,seed);
+		result += color * nextEventEstimation(rayOrigin,norm,seed);
 		#endif
 
 		if(hash1(seed)>prob) {
@@ -151,5 +157,17 @@ void main(void) {
 		color = color / prob;
 
 		rayDirection = cosWeightedRandomHemisphereDirection(norm,seed);
+	}
+	return result;
+}
+
+out vec4 pixel;
+void main(void) {
+	float seed = coord.x + (coord.y+937.8310762)*coord.y * 3.43121412313 + time/294.529562;
+
+	pixel += texture(sampleTexture, coord.xy*0.5+0.5);
+
+	while(pixel.w<sampleCount) {
+		pixel += vec4(sampleScene(seed),1.0);
 	}
 }
