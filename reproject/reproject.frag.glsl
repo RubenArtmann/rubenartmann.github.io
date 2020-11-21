@@ -30,7 +30,7 @@ out vec4 outColor;
 void main() {
 	float seed = coord.x + (coord.y+937.8310762)*coord.y * 3.43121412313 + time/294.529562;
 
-	vec2 offset = hash2(seed);
+	vec2 offset = hash2(seed)-0.5;
 
 	vec3 rayDirection = rayDirFromCameraPlane(coord.xy,resolution,offset,newCameraRot);
 	vec3 worldPos;

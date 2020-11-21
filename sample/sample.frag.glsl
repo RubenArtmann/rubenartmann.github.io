@@ -94,6 +94,19 @@ vec3 nextEventEstimation(vec3 rayOrigin, vec3 norm, inout float seed) {
 	return sum / float(DIRECT_SAMPLES);
 }
 
+vec4 resampleScreenBuffer(vec3 pos) {
+	vec3 dir = normalize(cameraPos-pos);
+	vec2 cameraPlane = cameraPlaneFromRayDir(dir,resolution,vec2(0.0),cameraRot);
+	vec3 norm = vec3(0.0);
+	vec4 material = vec4(0.0);
+	vec3 testPos = vec3(0.0);
+	float dist = intersectScene(cameraPos, dir, testPos, norm, material);
+	if(testPos == pos) {
+		return vec4(texture(sampleTexture,cameraPlane*0.5+0.5).xyz,1.0);
+	}
+	return vec4(0.0);
+}
+
 vec3 sampleScene(float seed) {
 	
 	vec3 result = vec3(0.0);
@@ -120,6 +133,13 @@ vec3 sampleScene(float seed) {
 			result += color * material.xyz;
 			return result;
 		}
+
+		vec4 resampleResult = resampleScreenBuffer(rayOrigin);
+		if(resampleResult.w>0.0) {
+			color *= 0.5;
+			result += color * resampleResult.xyz;
+		}
+
 		color = color * material.xyz;
 
 		float prob = PATH_PROPABILITY_EXPRESSION;
