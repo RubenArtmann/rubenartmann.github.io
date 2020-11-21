@@ -21,5 +21,6 @@ void main() {
 	vec3 color = pixel.xyz / pixel.w;
 	color *= BRIGHTNESS;
 	color = clampWithDesaturation(color);
+	// color.z = pixel.w/10.0;
 	gl_FragColor = vec4(color,1.0);
 }

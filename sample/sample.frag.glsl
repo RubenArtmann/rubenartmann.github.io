@@ -5,7 +5,9 @@ precision highp float;
 #include ./shaders/camera.glsl
 
 in vec3 coord;
+uniform sampler2D sampleTexture;
 uniform float time;
+uniform float sampleCount;
 uniform vec2 resolution;
 uniform vec3 cameraPos;
 uniform vec3 cameraRot;
@@ -92,11 +94,9 @@ vec3 nextEventEstimation(vec3 rayOrigin, vec3 norm, inout float seed) {
 	return sum / float(DIRECT_SAMPLES);
 }
 
-out vec4 pixel;
-void main(void) {
-	float seed = coord.x + (coord.y+937.8310762)*coord.y * 3.43121412313 + time/294.529562;
+vec3 sampleScene(float seed) {
 	
-	pixel = vec4(vec3(0.0,0.0,0.0),1.0);
+	vec3 result = vec3(0.0);
 
 
 	vec3 rayOrigin = cameraPos;
@@ -117,15 +117,15 @@ void main(void) {
 			if(material.w>0.5 && pathlength>1) break;
 			// break;
 			#endif
-			pixel.xyz += color * material.xyz;
-			return;
+			result += color * material.xyz;
+			return result;
 		}
 		color = color * material.xyz;
 
 		float prob = PATH_PROPABILITY_EXPRESSION;
 
 		#ifdef NEXT_EVENT_ESTIMATION
-		pixel.xyz += color * nextEventEstimation(rayOrigin,norm,seed);
+		result += color * nextEventEstimation(rayOrigin,norm,seed);
 		#endif
 
 		if(hash1(seed)>prob) {
@@ -137,5 +137,17 @@ void main(void) {
 		color = color / prob;
 
 		rayDirection = cosWeightedRandomHemisphereDirection(norm,seed);
+	}
+	return result;
+}
+
+out vec4 pixel;
+void main(void) {
+	float seed = coord.x + (coord.y+937.8310762)*coord.y * 3.43121412313 + time/294.529562;
+
+	pixel += texture(sampleTexture, coord.xy*0.5+0.5);
+
+	while(pixel.w<sampleCount) {
+		pixel += vec4(sampleScene(seed),1.0);
 	}
 }

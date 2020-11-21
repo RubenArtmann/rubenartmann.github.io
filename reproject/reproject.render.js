@@ -29,6 +29,8 @@ export const reproject = (canvas, gl, state, newCamera)=>{
 		gl.drawElements(gl.TRIANGLES, state.indices.length, gl.UNSIGNED_SHORT,0);
 
 		state.sampleSwapFrameBuffer.swap();
+
+		if(state.sampleCount>5) state.sampleCount = 5;
 	}
 
 	state.camera = newCamera;

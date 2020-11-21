@@ -14,6 +14,11 @@ export const setup = async(canvas, gl, state)=>{
 
 	sampleState.coordLoc = gl.getAttribLocation(sampleState.program, "coordinates");
 	sampleState.timeLoc = gl.getUniformLocation(sampleState.program, "time");
+	
+	sampleState.sampleCountLoc = gl.getUniformLocation(sampleState.program, "sampleCount");
+
+	sampleState.sampleTextureLoc = gl.getUniformLocation(sampleState.program, "sampleTexture");
+
 	sampleState.cameraPosLoc = gl.getUniformLocation(sampleState.program, "cameraPos");
 	sampleState.cameraRotLoc = gl.getUniformLocation(sampleState.program, "cameraRot");
 
