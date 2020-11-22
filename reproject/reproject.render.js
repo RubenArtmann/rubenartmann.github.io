@@ -30,7 +30,7 @@ export const reproject = (canvas, gl, state, newCamera)=>{
 
 		state.sampleSwapFrameBuffer.swap();
 
-		if(state.sampleCount>5) state.sampleCount = 5;
+		if(state.sampleCount>2) state.sampleCount = 2;
 	}
 
 	state.camera = newCamera;

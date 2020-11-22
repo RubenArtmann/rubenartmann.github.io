@@ -108,7 +108,6 @@ vec4 resampleScreenBuffer(vec3 pos) {
 }
 
 vec3 sampleScene(float seed) {
-	
 	vec3 result = vec3(0.0);
 
 
@@ -134,11 +133,15 @@ vec3 sampleScene(float seed) {
 			return result;
 		}
 
-		vec4 resampleResult = resampleScreenBuffer(rayOrigin);
-		if(resampleResult.w>0.0) {
-			color *= 0.5;
-			result += color * resampleResult.xyz;
+		#ifdef RESAMPLE_SCREEN_BUFFER
+		if(pathlength>1 && hash1(seed)<RESAMPLE_SCREEN_BUDDER_PROBABILITY) {
+			vec4 resampleResult = resampleScreenBuffer(rayOrigin);
+			if(resampleResult.w>0.0) {
+					result += color * resampleResult.xyz;
+				return result;
+			}
 		}
+		#endif
 
 		color = color * material.xyz;
 

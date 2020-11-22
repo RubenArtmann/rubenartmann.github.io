@@ -72,8 +72,8 @@ const render = (canvas, gl, state)=>{
 	// 	gl.finish()
 	// 	state.sampleCount++;
 	// }
-	let diff = lastDeltaTime-1000/30;
-	sampleCountVelocity -= diff/1000;
+	let diff = lastDeltaTime-1000/15;
+	sampleCountVelocity -= diff/5000;
 	state.sampleCount += sampleCountVelocity;
 	if(sampleCountVelocity<0) {
 		state.sampleCount *= 0.5;
@@ -83,6 +83,7 @@ const render = (canvas, gl, state)=>{
 
 	// render to screen
 	filter(canvas,gl,state);
+	gl.flush();
 	gl.finish();
 	lastDeltaTime = performance.now()-start;
 	document.querySelector("#deltaTime").innerHTML = lastDeltaTime;

@@ -19,9 +19,9 @@ uniform vec3 newCameraRot;
 #include ./shaders/scene.glsl
 #include ./shaders/camera.glsl
 
-vec4 textureClampToBlack(sampler2D tex, vec2 coord) {
+vec4 textureClampToBlack(sampler2D tex, vec2 coord,float seed) {
 	vec4 p = texture(tex,coord);
-	if((coord.x>=1.0||coord.x<0.0||coord.y>=1.0||coord.y<0.0) && p.w>1.0) p /= p.w*3.0;
+	if((coord.x>=1.0||coord.x<0.0||coord.y>=1.0||coord.y<0.0) && p.w>1.0) p /= p.w*(1.0+hash1(seed));
 	return p;
 }
 
@@ -29,7 +29,6 @@ out vec4 outColor;
 
 void main() {
 	float seed = coord.x + (coord.y+937.8310762)*coord.y * 3.43121412313 + time/294.529562;
-
 	vec2 offset = hash2(seed)-0.5;
 
 	vec3 rayDirection = rayDirFromCameraPlane(coord.xy,resolution,offset,newCameraRot);
@@ -44,11 +43,11 @@ void main() {
 
 	intersectScene(oldCameraPos, oldDir, worldPos, normTest, materialTest);
 	if(material != materialTest || dot(norm,normTest)<0.99) {
-		outColor = vec4(0.0,0.0,0.0,0.0);
+		outColor = vec4(0.0,0.0,0.0,hash1(seed));
 		return;
 	}
 
-	vec4 pixel = textureClampToBlack(sampleTexture, oldCameraPlane.xy*0.5+0.5);
+	vec4 pixel = textureClampToBlack(sampleTexture, oldCameraPlane.xy*0.5+0.5, seed);
 
 	for(int i=0; i<REPROJECTION_DISCARD_SAMPLE_COUNT; i++) {
 		float a = hash1(seed)*TAU;
