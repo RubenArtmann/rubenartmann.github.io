@@ -18,9 +18,9 @@ vec3 clampWithDesaturation(vec3 color) {
 
 void main() {
 	vec4 pixel = texture2D(sampleTexture, gl_FragCoord.xy / resolution);
-	vec3 color = pixel.xyz / pixel.w;
+	vec3 color = pixel.rgb / pixel.w;
 	color *= BRIGHTNESS;
 	color = clampWithDesaturation(color);
-	// color.z = pixel.w/10.0;
+	// color.r = pixel.w/100.0;
 	gl_FragColor = vec4(color,1.0);
 }

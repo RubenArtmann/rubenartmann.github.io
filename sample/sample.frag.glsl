@@ -108,7 +108,6 @@ vec4 resampleScreenBuffer(vec3 pos) {
 }
 
 vec3 sampleScene(float seed) {
-	
 	vec3 result = vec3(0.0);
 
 
@@ -127,18 +126,22 @@ vec3 sampleScene(float seed) {
 		float dist = intersectScene(rayOrigin, rayDirection, rayOrigin, norm, material);
 		if(material.w>0.0) {
 			#ifdef NEXT_EVENT_ESTIMATION
-			if(material.w>0.5 && pathlength>1) break;
+			if(pathlength>1&&material.w>0.5) break;
 			// break;
 			#endif
 			result += color * material.xyz;
 			return result;
 		}
 
-		vec4 resampleResult = resampleScreenBuffer(rayOrigin);
-		if(resampleResult.w>0.0) {
-			color *= 0.5;
-			result += color * resampleResult.xyz;
+		#ifdef RESAMPLE_SCREEN_BUFFER
+		if(pathlength>1 && hash1(seed)<RESAMPLE_SCREEN_BUFFER_PROBABILITY) {
+			vec4 resampleResult = resampleScreenBuffer(rayOrigin);
+			if(resampleResult.w>0.0) {
+					result += color * resampleResult.xyz;
+				return result;
+			}
 		}
+		#endif
 
 		color = color * material.xyz;
 

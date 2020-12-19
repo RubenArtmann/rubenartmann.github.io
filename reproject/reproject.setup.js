@@ -15,7 +15,6 @@ export const setup = async(canvas, gl, state)=>{
 
 	reprojectState.sampleTextureLoc = gl.getUniformLocation(reprojectState.program, "sampleTexture");
 	reprojectState.timeLoc = gl.getUniformLocation(reprojectState.program, "time");
-	console.log(reprojectState.program,reprojectState.timeLoc)
 	reprojectState.oldCameraPosLoc = gl.getUniformLocation(reprojectState.program, "oldCameraPos");
 	reprojectState.newCameraPosLoc = gl.getUniformLocation(reprojectState.program, "newCameraPos");
 	reprojectState.oldCameraRotLoc = gl.getUniformLocation(reprojectState.program, "oldCameraRot");

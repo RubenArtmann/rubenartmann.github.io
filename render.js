@@ -55,13 +55,16 @@ const round = (n,m)=>{
 	return Math.round(n*m)/m;
 };
 
-let lastDeltaTime = 1000/30;
+// let lastDeltaTime = 1000/30;
+let lastFrameStart = performance.now();
 let sampleCountVelocity = 1;
 const render = (canvas, gl, state)=>{
 	let start = performance.now();
+	let deltaTime = start-lastFrameStart;
+	lastFrameStart = start;
 
 	// get input / new camera
-	let newCamera = getInput(state,lastDeltaTime);
+	let newCamera = getInput(state,deltaTime);
 
 	// transform to new camera
 	reproject(canvas,gl,state,newCamera);
@@ -72,8 +75,8 @@ const render = (canvas, gl, state)=>{
 	// 	gl.finish()
 	// 	state.sampleCount++;
 	// }
-	let diff = lastDeltaTime-1000/30;
-	sampleCountVelocity -= diff/1000;
+	let diff = deltaTime-1000/15;
+	sampleCountVelocity -= diff/5000;
 	state.sampleCount += sampleCountVelocity;
 	if(sampleCountVelocity<0) {
 		state.sampleCount *= 0.5;
@@ -83,9 +86,7 @@ const render = (canvas, gl, state)=>{
 
 	// render to screen
 	filter(canvas,gl,state);
-	gl.finish();
-	lastDeltaTime = performance.now()-start;
-	document.querySelector("#deltaTime").innerHTML = lastDeltaTime;
+	document.querySelector("#deltaTime").innerHTML = deltaTime;
 	document.querySelector("#spp").innerHTML = round(state.sampleCount,100);
 	document.querySelector("#sppVelocity").innerText = round(sampleCountVelocity,100);
 };

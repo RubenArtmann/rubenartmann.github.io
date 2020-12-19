@@ -58,7 +58,7 @@ vec4 spheres[SPHERE_COUNT] = vec4[SPHERE_COUNT](
 );
 vec4 materials[SPHERE_COUNT] = vec4[SPHERE_COUNT](
 	vec4(vec3(1.0,1.0,0.5)*1000.0,1.0),//sun
-	vec4(vec3(1.0,1.0,2.0)*8.0,1.0),
+	vec4(vec3(1.0,1.0,2.0)*5.0,1.0),
 	vec4(vec3(1.0)*3.0,1.0),
 	vec4(1.0,1.0,1.0,0.0),
 	vec4(1.0,0.5,0.5,0.0),//left
