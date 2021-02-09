@@ -6,4 +6,4 @@
 
 ## some image translation tool
 
-[view](https://rubenartmann.github.io)
+[view](https://rubenartmann.github.io/manga)
