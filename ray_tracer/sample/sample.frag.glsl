@@ -67,7 +67,7 @@ vec3 nextEventEstimation(vec3 rayOrigin, vec3 norm, inout float seed) {
 		vec3 newDir = normalize(pointOnSphereCrosssectionRelativeToRayOrigin);
 		vec3 scratch = vec3(0.0);
 		vec4 material;
-		intersectScene(rayOrigin, newDir, scratch, scratch, material);
+		intersectSceneWithMaterial(rayOrigin, newDir, material);
 		//assume no overlap between lights
 		if(material == materials[i]) {
 			float cost = dot(newDir,norm);
@@ -86,7 +86,7 @@ vec3 nextEventEstimation(vec3 rayOrigin, vec3 norm, inout float seed) {
 		vec3 rayDirection = cosWeightedRandomHemisphereDirection(norm,seed);
 		vec3 scratch = vec3(0.0);
 		vec4 material;
-		intersectScene(rayOrigin, rayDirection, scratch, scratch, material);
+		intersectSceneWithMaterial(rayOrigin, rayDirection, material);
 		if(material.w>0.5) {
 			sum += material.xyz;
 		}
@@ -100,7 +100,7 @@ vec4 resampleScreenBuffer(vec3 pos) {
 	vec3 norm = vec3(0.0);
 	vec4 material = vec4(0.0);
 	vec3 testPos = vec3(0.0);
-	float dist = intersectScene(cameraPos, dir, testPos, norm, material);
+	float dist = intersectSceneWithHitpointNormalMaterial(cameraPos, dir, testPos, norm, material);
 	if(testPos == pos) {
 		return vec4(texture(sampleTexture,cameraPlane*0.5+0.5).xyz,1.0);
 	}
@@ -120,10 +120,10 @@ vec3 sampleScene(float seed) {
 	vec4 material = vec4(0.0);
 
 	int pathlength = 0;
-	while(true) {
+	while(pathlength<5) {
 		pathlength++;
 
-		float dist = intersectScene(rayOrigin, rayDirection, rayOrigin, norm, material);
+		float dist = intersectSceneWithHitpointNormalMaterial(rayOrigin, rayDirection, rayOrigin, norm, material);
 		if(material.w>0.0) {
 			#ifdef NEXT_EVENT_ESTIMATION
 			if(pathlength>1&&material.w>0.5) break;
@@ -134,7 +134,7 @@ vec3 sampleScene(float seed) {
 		}
 
 		#ifdef RESAMPLE_SCREEN_BUFFER
-		if(pathlength>1 && hash1(seed)<RESAMPLE_SCREEN_BUFFER_PROBABILITY) {
+		if(pathlength>1 RESAMPLE_SCREEN_BUFFER_CONDITION) {
 			vec4 resampleResult = resampleScreenBuffer(rayOrigin);
 			if(resampleResult.w>0.0) {
 					result += color * resampleResult.xyz;
@@ -166,11 +166,12 @@ vec3 sampleScene(float seed) {
 
 out vec4 pixel;
 void main(void) {
-	float seed = coord.x + (coord.y+937.8310762)*coord.y * 3.43121412313 + time/294.529562;
+	float seed = coord.x + (coord.y+937.8310762)*coord.y * 3.43993679 + time/294.529562;
 
 	pixel += texture(sampleTexture, coord.xy*0.5+0.5);
 
-	while(pixel.w<sampleCount) {
+	float count = sampleCount-hash1(seed);
+	while(pixel.w<count) {
 		pixel += vec4(sampleScene(seed),1.0);
 	}
 }

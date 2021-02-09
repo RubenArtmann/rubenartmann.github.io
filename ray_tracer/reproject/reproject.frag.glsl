@@ -22,7 +22,8 @@ uniform vec3 newCameraRot;
 vec4 textureClampToBlack(sampler2D tex, vec2 coord,float seed) {
 	vec4 p = texture(tex,coord);
 	if((coord.x>=1.0||coord.x<0.0||coord.y>=1.0||coord.y<0.0)) {
-		p /= p.w * 3.0;
+		p /= p.w;
+		p *= hash1(seed)*0.1;
 	}
 	return p;
 }
@@ -39,26 +40,33 @@ void main() {
 	vec3 normTest;
 	vec4 material;
 	vec4 materialTest;
-	intersectScene(newCameraPos, rayDirection, worldPos, norm, material);
+	intersectSceneWithHitpointNormalMaterial(newCameraPos, rayDirection, worldPos, norm, material);
 	vec3 oldDir = normalize(worldPos-oldCameraPos);
 	vec2 oldCameraPlane = cameraPlaneFromRayDir(oldDir,resolution,offset,oldCameraRot);
 
-	intersectScene(oldCameraPos, oldDir, worldPos, normTest, materialTest);
-	if(material != materialTest || dot(norm,normTest)<0.99) {
-		outColor = vec4(0.0,0.0,0.0,0.0);
+	intersectSceneWithHitpointNormalMaterial(oldCameraPos, oldDir, worldPos, normTest, materialTest);
+	if(material != materialTest || dot(norm,normTest)<0.975) {
+		outColor = vec4(0.0,0.0,0.0,0.1);
 		return;
 	}
 
 	vec4 pixel = textureClampToBlack(sampleTexture, oldCameraPlane.xy*0.5+0.5, seed);
 
+	const float mul = 1.0/float(REPROJECTION_DISCARD_SAMPLE_COUNT)*TAU;
 	for(int i=0; i<REPROJECTION_DISCARD_SAMPLE_COUNT; i++) {
-		float a = hash1(seed)*TAU;
+		float a = float(i)*mul;
 		offset = vec2(sin(a),cos(a))*REPROJECTION_DISCARD_RADIUS;
+
 		vec3 rayDirectionTest = rayDirFromCameraPlane(oldCameraPlane.xy,resolution,offset,oldCameraRot);
-		intersectScene(oldCameraPos, rayDirectionTest, worldPos, normTest, materialTest);
-		if(material != materialTest || dot(norm,normTest)<0.99) {
-			if(pixel.w>=1.0) pixel /= pixel.w / 0.1;
+		intersectSceneWithHitpointNormalMaterial(oldCameraPos, rayDirectionTest, worldPos, normTest, materialTest);
+		if(material != materialTest || dot(norm,normTest)<0.975) {
+			if(pixel.w>=0.1) pixel *= 0.1 / pixel.w;
 		}
+
+		// vec4 testPixel = textureClampToBlack(sampleTexture, (oldCameraPlane.xy+offset)*0.5+0.5, seed);
+		// if(distance(pixel.xyz/pixel.w,testPixel.xyz/testPixel.w)>0.2) {
+		// 	if(pixel.w>=1.0) pixel *= 0.1 / pixel.w;
+		// }
 	}
 
 	pixel *= REPROJECTION_WEIGHT_FALLOFF_EXPRESSION;

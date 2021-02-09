@@ -1,9 +1,9 @@
 export const downloadAndPreprocessGLSL = async(path)=>{
 	let src = await(await fetch(path)).text();
-	let results = src.match(/#include (.+)\n/g);
+	let results = src.match(/#include (.+)\r?\n/g);
 	if(results === null) return src;
 	for (let i = 0; i < results.length; ++i) {
-		let subPath = results[i].match(/#include (.+)\n/)[1];
+		let subPath = results[i].match(/#include (.+)\r?\n/)[1];
 		src = src.replace(results[i], await downloadAndPreprocessGLSL(subPath));
 	}
 	return src;
@@ -12,7 +12,7 @@ export const downloadAndPreprocessGLSL = async(path)=>{
 export const compileShader = (gl, shaderType, src)=>{
 	let shader = gl.createShader(shaderType);
 	gl.shaderSource(shader,src);
-	gl.compileShader(shader);
+	gl.compileShader(shader)
 	if(!gl.getShaderParameter(shader,gl.COMPILE_STATUS)) {
 		let error = gl.getShaderInfoLog(shader);
 		let line = parseInt(error.match(/ERROR\: [0-9]+\:([0-9]+)/)[1]);

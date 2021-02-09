@@ -105,11 +105,11 @@ const draw = ()=>{
 	// c.clearRect(0,0,canvas.width,canvas.height);
 	render(canvas, gl, state);
 
-	window.requestAnimationFrame(draw);
+	requestAnimationFrame(draw);
 };
 const resize = ()=>{
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
+	canvas.width = window.innerWidth/2;
+	canvas.height = window.innerHeight/2;
 };
 window.addEventListener("resize",resize);
 resize();

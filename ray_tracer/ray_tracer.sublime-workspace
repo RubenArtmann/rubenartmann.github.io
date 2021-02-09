@@ -1,0 +1,1436 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"del",
+				"deltaTime\tlet"
+			],
+			[
+				"las",
+				"lastFrameStart\tlet"
+			],
+			[
+				"has",
+				"hash1"
+			],
+			[
+				"ray",
+				"rayDirection"
+			],
+			[
+				"cam",
+				"cameraPlane"
+			],
+			[
+				"samp",
+				"sampleCount"
+			],
+			[
+				"sam",
+				"sampleCountVelocity\tlet"
+			],
+			[
+				"sampl",
+				"sampleCountVelocity\tlet"
+			],
+			[
+				"sa",
+				"sampleCount\twarning"
+			],
+			[
+				"new",
+				"newCameraRot"
+			],
+			[
+				"camera",
+				"cameraRot"
+			],
+			[
+				"vec",
+				"vec4"
+			],
+			[
+				"mat",
+				"materialTest"
+			],
+			[
+				"pix",
+				"pixelmm"
+			],
+			[
+				"pi",
+				"pixelpp"
+			],
+			[
+				"out",
+				"outColor"
+			],
+			[
+				"ma",
+				"materialTest"
+			],
+			[
+				"wol",
+				"worldPos"
+			],
+			[
+				"wo",
+				"worldPosTest"
+			],
+			[
+				"tim",
+				"timeLoc\tproperty"
+			],
+			[
+				"rep",
+				"reprojectState\tlet"
+			],
+			[
+				"tex",
+				"textureUnitCount\tlet"
+			],
+			[
+				"re",
+				"reproject\tdirectory"
+			],
+			[
+				"fil",
+				"filterState\tlet"
+			],
+			[
+				"ca",
+				"cameraPlaneWorldPos"
+			],
+			[
+				"wid",
+				"width\tproperty"
+			],
+			[
+				"tra",
+				"transform\tproperty"
+			],
+			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
+				"pr",
+				"processGlslFile\tconst"
+			],
+			[
+				"res",
+				"results\tlet"
+			],
+			[
+				"xy",
+				"xyz"
+			],
+			[
+				"norm",
+				"normalize"
+			],
+			[
+				"curr",
+				"currPosition"
+			],
+			[
+				"area",
+				"areaFraction"
+			],
+			[
+				"RAY",
+				"rayOrigin"
+			],
+			[
+				"cos",
+				"cosWeightedRandomHemisphereDirection"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"rig",
+				"rightIndex"
+			],
+			[
+				"lef",
+				"leftIndex"
+			],
+			[
+				"ri",
+				"rightBound"
+			],
+			[
+				"left",
+				"leftBound"
+			],
+			[
+				"midd",
+				"middleIndex\tlet"
+			],
+			[
+				"in",
+				"integrateSimple\tconst"
+			],
+			[
+				"for",
+				"for\tfor (…) {…}"
+			],
+			[
+				"clo",
+				"closest"
+			],
+			[
+				"inter",
+				"intersectScene"
+			],
+			[
+				"mate",
+				"material"
+			],
+			[
+				"cl",
+				"closestDist"
+			],
+			[
+				"rot",
+				"rotatedDir"
+			],
+			[
+				"p",
+				"point"
+			],
+			[
+				"this",
+				"thisFrame\tlet"
+			],
+			[
+				"coo",
+				"coordinates"
+			],
+			[
+				"frag",
+				"fragShader\tlet"
+			],
+			[
+				"Arr",
+				"ARRAY_BUFFER\twarning"
+			],
+			[
+				"ve",
+				"vec3"
+			],
+			[
+				"gl_",
+				"gl_FragColor"
+			],
+			[
+				"gl",
+				"gl_Position"
+			],
+			[
+				"createI",
+				"createIndexBuffer\tconst"
+			],
+			[
+				"Inde",
+				"Index_Buffer"
+			],
+			[
+				"conten",
+				"contentTypeValue\tconst"
+			],
+			[
+				"webl",
+				"webgl2\tstring"
+			],
+			[
+				"inn",
+				"innerWidth\tvar"
+			],
+			[
+				"imp",
+				"implements\tkeyword"
+			],
+			[
+				"Ass",
+				"AssemblyCode"
+			],
+			[
+				"ru",
+				"runAsm\tconst"
+			],
+			[
+				"proc",
+				"procedureScope\tlet"
+			],
+			[
+				"const",
+				"constraints"
+			],
+			[
+				"log",
+				"logExpression\tlet"
+			],
+			[
+				"all",
+				"allowNull\tparameter"
+			],
+			[
+				"co",
+				"count"
+			],
+			[
+				"pare",
+				"parentTypeRef\tlet"
+			],
+			[
+				"paren",
+				"parentTypeRef"
+			],
+			[
+				"Str",
+				"StructType"
+			],
+			[
+				"Struc",
+				"StructType\tclass"
+			],
+			[
+				"Tp",
+				"TypeRef\tscript"
+			],
+			[
+				"proce",
+				"procedureLexicalScope\tlet"
+			],
+			[
+				"Node",
+				"NodeIdentifierExpression\talias"
+			],
+			[
+				"pre",
+				"procedure"
+			],
+			[
+				"create",
+				"createGlobalScope"
+			],
+			[
+				"func",
+				"functionScope"
+			],
+			[
+				"exp",
+				"expression"
+			],
+			[
+				"stat",
+				"statement"
+			],
+			[
+				"No",
+				"NodeStatement"
+			],
+			[
+				"com",
+				"compiledModule"
+			],
+			[
+				"data",
+				"data_index"
+			],
+			[
+				"format",
+				"formatString\tlet"
+			],
+			[
+				"number",
+				"number_format\tproperty"
+			],
+			[
+				"numb",
+				"numberType\tlet"
+			],
+			[
+				"Func",
+				"FunctionType\talias"
+			],
+			[
+				"typ",
+				"typeRef\tproperty"
+			],
+			[
+				"NodeS",
+				"NodeStatementList\talias"
+			],
+			[
+				"val",
+				"value_type"
+			],
+			[
+				"VAL",
+				"VALUE_TYPE"
+			],
+			[
+				"type",
+				"type_type"
+			],
+			[
+				"fun",
+				"functionType\tlet"
+			],
+			[
+				"o",
+				"outputTypeRef\tproperty"
+			],
+			[
+				"cons",
+				"constructor\tkeyword"
+			],
+			[
+				"Type",
+				"TypeRef\talias"
+			],
+			[
+				"nu",
+				"numberType\tlet"
+			],
+			[
+				"num",
+				"number_format\tproperty"
+			],
+			[
+				"Typ",
+				"TypeRef\talias"
+			],
+			[
+				"import",
+				"import\tkeyword"
+			],
+			[
+				"oper",
+				"operatorName\tlet"
+			],
+			[
+				"op",
+				"operator\tlet"
+			],
+			[
+				"parse",
+				"parseNumberLiteralExpression\tvar"
+			],
+			[
+				"ex",
+				"extendExpressionBaseToMemberAccessExpression"
+			],
+			[
+				"ext",
+				"extendExpressionBaseToMemberAccessExpression"
+			],
+			[
+				"pars",
+				"parseExpressionBase\tvar"
+			],
+			[
+				"extend",
+				"extendExpressionToProcedureCallExpression\tconst"
+			],
+			[
+				"fin",
+				"finished\tlet"
+			],
+			[
+				"u",
+				"utils_extend"
+			],
+			[
+				"ut",
+				"utils_many\tconst"
+			],
+			[
+				"to",
+				"toSource"
+			],
+			[
+				"tO",
+				"toSource"
+			],
+			[
+				"utils",
+				"utils_extend"
+			],
+			[
+				"n",
+				"number_format\tproperty"
+			],
+			[
+				"Ty",
+				"TypeRef"
+			],
+			[
+				"TYPE",
+				"TYPE_TYPE\tenum"
+			],
+			[
+				"NodeI",
+				"NodeIdentifierExpression\talias"
+			],
+			[
+				"parseStat",
+				"parseStatementList"
+			],
+			[
+				"parseSta",
+				"parseStatementList\tconst"
+			],
+			[
+				"f",
+				"functionTypeRef"
+			],
+			[
+				"sta",
+				"statements"
+			],
+			[
+				"de",
+				"debugName"
+			],
+			[
+				"ty",
+				"typeRef"
+			],
+			[
+				"i",
+				"inputTypeRef"
+			],
+			[
+				"mem",
+				"members"
+			],
+			[
+				"Pa",
+				"ParseStatementOutput"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "render.js",
+			"settings":
+			{
+				"buffer_size": 2620,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "main.js",
+			"settings":
+			{
+				"buffer_size": 3362,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sample/sample.render.js",
+			"settings":
+			{
+				"buffer_size": 1385,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "filter/filter.frag.glsl",
+			"settings":
+			{
+				"buffer_size": 650,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "shaders/scene.glsl",
+			"settings":
+			{
+				"buffer_size": 2802,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sample/sample.setup.js",
+			"settings":
+			{
+				"buffer_size": 1278,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "reproject/reproject.frag.glsl",
+			"settings":
+			{
+				"buffer_size": 2283,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "sample/sample.frag.glsl",
+			"settings":
+			{
+				"buffer_size": 4647,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/nasm.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/User/js.sublime-build",
+					""
+				],
+				[
+					"Packages/User/nasm.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/nasm.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"list ",
+				"Package Control: List Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"extract",
+				"PackageResourceViewer: Extract All Packages"
+			],
+			[
+				"syntax",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"insall",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/filter",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/reproject",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/sample",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/shaders"
+	],
+	"file_history":
+	[
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/filter/filter.render.js",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/shaders/const.glsl",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/sample/sample.setup.js",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/gl_utils.js",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/setup.js",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/sample/sample.frag.glsl",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/shaders/random.glsl",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/shaders/camera.glsl",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/serve.ts",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/denon.json",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/index.html",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/filter/filter.setup.js",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/reproject/reproject.frag.glsl",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/reproject/reproject.render.js",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/filter/filter.vert.glsl",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/reproject/reproject.setup.js",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/README.md",
+		"/tmp/mozilla_unnamed0/yeet-1.html",
+		"/home/unnamed/Downloads/Web_browser_RAM_usage_test_16_BMP.html",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/shaders/scene.glsl",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/shaders/../sample/sample.vert.glsl",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/main.js",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/render.js",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/sample/sample.render.js",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/shaders/../reproject/reproject.frag.glsl",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/shaders/../reproject/reproject.vert.glsl",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/shaders/../sample/sample.frag.glsl",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/shaders/reprojection.vert.glsl",
+		"/home/unnamed/Downloads/Smallpaint/smallpaint_fixed/smallpaint_fixed.cpp",
+		"/tmp/mozilla_unnamed0/basic.ics",
+		"/home/unnamed/Documents/Facharbeit/ray_tracer/material.js",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/shaders/filter.frag.glsl",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/shaders/sampler.vert.glsl",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/shaders/filter.vert.glsl",
+		"/home/unnamed/.config/sublime-text-3/Packages/JavaScript/Snippets/for-()-{}.sublime-snippet",
+		"/home/unnamed/Downloads/Smallpaint/HOWTOAddYourOwnRenderer.txt",
+		"/home/unnamed/.config/sublime-text-3/Packages/JavaScript/Snippets/for-()-{}-(faster).sublime-snippet",
+		"/home/unnamed/.config/sublime-merge/Packages/User/Preferences.sublime-settings",
+		"/home/unnamed/Documents/deno-stuff/discord-bot/mod.ts",
+		"/home/unnamed/Downloads/Smallpaint/src_gui/mainrenderdistributor.cpp",
+		"/home/unnamed/Downloads/Smallpaint/src_gui/main.cpp",
+		"/home/unnamed/Downloads/Smallpaint/src_gui/helperfunctions.cpp",
+		"/home/unnamed/Documents/Facharbeit/ray_tracer/scene.js",
+		"/home/unnamed/Documents/Facharbeit/Facharbeit.tex",
+		"/home/unnamed/Documents/Facharbeit/ray_tracer/main.js",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/scripts.json",
+		"/home/unnamed/Documents/deno-stuff/spasm/Assembly.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/mod.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/scripts.json",
+		"/home/unnamed/Documents/deno-stuff/spasm/test.asm",
+		"/home/unnamed/Documents/asm-stuff/hello-world/main.asm",
+		"/home/unnamed/Documents/yport-lang/scripts.json",
+		"/home/unnamed/Documents/yport-lang/values/Value.ts",
+		"/home/unnamed/Documents/yport-lang/ast/Node.ts",
+		"/home/unnamed/Documents/yport-lang/backends/interpreter/globalScope.ts",
+		"/home/unnamed/Documents/yport-lang/mod.ts",
+		"/home/unnamed/Documents/yport-lang/parser/utils.ts",
+		"/home/unnamed/Documents/yport-lang/types/constraints.ts",
+		"/home/unnamed/Documents/yport-lang/types/Type.ts",
+		"/home/unnamed/Documents/yport-lang/parser/expression.ts",
+		"/home/unnamed/Documents/yport-lang/parser/statement.ts",
+		"/home/unnamed/Documents/yport-lang/backends/interpreter/mod.ts",
+		"/home/unnamed/Documents/yport-lang/todo.md",
+		"/etc/security/limits.conf",
+		"/home/unnamed/Documents/yport-lang/backends/Backend.ts",
+		"/home/unnamed/Documents/yport-lang/tests/demos/brainf*ck_interpreter/main.yport",
+		"/home/unnamed/Documents/yport-lang/test.ts",
+		"/home/unnamed/Documents/yport-lang/tsconfig.json",
+		"/home/unnamed/Documents/yport-lang/tests/polymorph.yport",
+		"/home/unnamed/Documents/yport-lang/tests/type-introspection.yport",
+		"/home/unnamed/Documents/yport-lang/tests/demos/compiler/parser.yport",
+		"/home/unnamed/Documents/yport-lang/tests/procedures/empty.yport",
+		"/home/unnamed/Documents/yport-lang/tests/procedures/log_constant.yport",
+		"/home/unnamed/Documents/yport-lang/tests/procedures/log_input.yport",
+		"/home/unnamed/Documents/yport-lang/tests/procedures/polymorphic.yport",
+		"/home/unnamed/Documents/yport-lang/types/TypeRef.ts",
+		"/home/unnamed/Documents/yport-lang/parser/parser.ts",
+		"/home/unnamed/Documents/yport-lang/parser/PRECEDENCE.ts",
+		"/home/unnamed/Documents/yport-lang/tests/variables/assignment.yport",
+		"/home/unnamed/Documents/yport-lang/tests/variables/member_access.yport",
+		"/tmp/mozilla_unnamed0/habeEsInsWikiGeschrieben.txt",
+		"/home/unnamed/Downloads/habeEsInsWikiGeschrieben.txt",
+		"/home/unnamed/.profile",
+		"/home/unnamed/Documents/yport-lang/tests/variables/math.yport",
+		"/home/unnamed/.bashrc",
+		"/home/unnamed/Documents/yport-lang/tests/control-flow/if.yport",
+		"/home/unnamed/Documents/yport-lang/tests/control-flow/while.yport",
+		"/home/unnamed/Documents/yport-lang/.gitignore",
+		"/home/unnamed/Documents/yport-lang/tests/output/console.yport",
+		"/home/unnamed/Documents/yport-lang/todo.txt",
+		"/home/unnamed/Documents/yport-lang/tests/variables/declaration_and_assignment.yport",
+		"/home/unnamed/Documents/yport-lang/tests/variables/assertion.yport",
+		"/home/unnamed/Documents/yport-lang/types/TYPE_REGISTRY.ts",
+		"/home/unnamed/Documents/yport-lang/.denon",
+		"/home/unnamed/Documents/yport-lang/tests/variables/declaration.yport",
+		"/etc/pop-os/gdm3/custom.conf",
+		"/home/unnamed/Documents/yport-lang/values/Type.ts",
+		"/home/unnamed/.mozilla/firefox/yjwsbg18.default/chrome/userChrome.css",
+		"/home/unnamed/.wine/drive_c/users/unnamed/My Documents/My Games/Path of Exile/production_Config.ini",
+		"/home/unnamed/.wine/drive_c/Program Files (x86)/Grinding Gear Games/Path of Exile/HashCache.dat",
+		"/home/unnamed/.config/sublime-text-3/Packages/TypeScript/TypeScript.sublime-settings",
+		"/home/unnamed/.mozilla/firefox/yjwsbg18.default/chrome/userchrome.css",
+		"/home/unnamed/Documents/yport-lang/69.PNG",
+		"/home/unnamed/Documents/yport-lang/main.ts",
+		"/home/unnamed/Documents/yport-lang/ast/Assignment.ts",
+		"/home/unnamed/Documents/yport-lang/ast/ast.ts",
+		"/home/unnamed/Documents/yport-lang/ast/Block.ts",
+		"/home/unnamed/Documents/yport-lang/ast/Declaration.ts",
+		"/home/unnamed/Documents/yport-lang/ast/FunctionCallStatement.ts",
+		"/home/unnamed/Documents/yport-lang/ast/IfStatement.ts",
+		"/home/unnamed/Documents/yport-lang/ast/Module.ts",
+		"/home/unnamed/Documents/yport-lang/ast/ReturnStatement.ts",
+		"/home/unnamed/Documents/yport-lang/ast/Tag.ts",
+		"/home/unnamed/Documents/yport-lang/ast/Tags.ts",
+		"/home/unnamed/Documents/yport-lang/ast/WhileLoop.ts",
+		"/home/unnamed/Documents/yport-lang/ast/expression/Equals.ts",
+		"/home/unnamed/Documents/yport-lang/ast/expression/FunctionCall.ts",
+		"/home/unnamed/Documents/yport-lang/ast/expression/FunctionLiteral.ts",
+		"/home/unnamed/Documents/yport-lang/ast/expression/generateInfixOperator.ts",
+		"/home/unnamed/Documents/yport-lang/ast/expression/Identifier.ts",
+		"/home/unnamed/Documents/yport-lang/ast/expression/LowerThan.ts",
+		"/home/unnamed/Documents/yport-lang/ast/expression/MemberAccess.ts",
+		"/home/unnamed/Documents/yport-lang/ast/expression/NumberLiteral.ts",
+		"/home/unnamed/Documents/yport-lang/ast/expression/Request.ts",
+		"/home/unnamed/Documents/yport-lang/ast/expression/StructLiteral.ts",
+		"/home/unnamed/Documents/yport-lang/runtime/encoder.ts",
+		"/home/unnamed/Documents/yport-lang/runtime/LexicalScope.ts",
+		"/home/unnamed/Documents/yport-lang/runtime/Memory.ts"
+	],
+	"find":
+	{
+		"height": 42.0
+	},
+	"find_in_files":
+	{
+		"height": 111.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"intersectSceneWithNormalMaterial",
+			"intersectScene",
+			"dt*3",
+			"front",
+			"state.sample",
+			"state.reprojection",
+			"state.filter",
+			"Vec3f",
+			"hash",
+			"trace",
+			"tracce",
+			"hal",
+			"Index_Buffer",
+			"bodyContent",
+			"createStructInstancer",
+			"ProcedureValue",
+			"createStructInstancer",
+			"ProcedureValue",
+			"StructValue",
+			"ProcedureValue",
+			"getMember",
+			"console.log",
+			"FunctionValue",
+			"func",
+			"Function",
+			"function",
+			"NodeL",
+			"createStructInstancer(",
+			"proc",
+			"createObjectInstancer",
+			"createOb",
+			"new NodeLiteralExpression(new StructValue(",
+			"NodeIdentifierExpression",
+			"implements",
+			"Type",
+			"console.log",
+			"parseI",
+			"NodeLiteralExpression",
+			"strea,",
+			"&quot;",
+			"\n\t\"EXPRESSION_OPERATOR_+\",",
+			"programm",
+			"argument",
+			"parseAss",
+			"src: string,",
+			"TypeRef",
+			"new_struct_literal",
+			"NodeProcedureCallStatement",
+			"();",
+			"NodeIdentifier",
+			"NodeStatementList",
+			" ",
+			"Any",
+			"= (src,index,precedence",
+			"src,index,",
+			"src,index,precedence,",
+			".js\"",
+			"MDN",
+			"process\\.stdout\\.write\\((.+)\\);",
+			"\\* as (.+?) ",
+			"*",
+			"process\\.stdout\\.write\\((.+)\\);",
+			"process\\.stdout\\.write\\(.",
+			"process.stdout.write",
+			",",
+			"\\t(.+): require\\((.+)\\)",
+			"\\t.+: require\\((.+)\\)",
+			"module\\.exports = ",
+			"module\\.export = ",
+			"const (.+) = require\\((.+)\\);",
+			"int",
+			"float",
+			"TypeReference",
+			"MemberAccess",
+			"function",
+			"get_member",
+			"expression(",
+			"getMemberType",
+			"getTypeParameter",
+			"functionCall ",
+			"function"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"intersectSceneWithHitpointNormalMaterial",
+			"intersectSceneWithNormalMaterial",
+			"distance",
+			"back",
+			"sampleState",
+			"reprojectState",
+			"filterState",
+			"vec3",
+			"index_buffer",
+			"getOrCreateMember",
+			"ProcedureValue",
+			"proc",
+			"Procedure",
+			"procedure",
+			"createStructInstancer(lexicalScope, ",
+			"createStructInstancer",
+			"createObjectInstancer",
+			"extends",
+			"\"",
+			"program",
+			"lexicalScope: TypeRef, src: string,",
+			"lexicalScope: Type, src: string,",
+			"NodeIdentifierExpression",
+			"NodeBlockStatement",
+			" ",
+			"any",
+			"= (src: string, index: number, precedence: number",
+			"src: string, index: number, ",
+			"src: string, index: number, precedence: number,",
+			".ts\"",
+			"Deno.stdout.writeSync(new TextEncoder().encode($1));",
+			"{default as $1} ",
+			"{default as $1}",
+			"default",
+			"Deno.stdout.writeSync(new TextEncoder().encode($1));",
+			"Deno.stdout.writeSync(new TextEncoder().encode($1))",
+			"Deno.stdout.writeSync",
+			";",
+			"export * as $1 from $2",
+			"export default ",
+			"import $1 from $2;",
+			"sint32",
+			"float32",
+			"TR"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "render.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2620,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2221,
+								2221
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1497.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3362,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3230,
+								3230
+							],
+							[
+								3269,
+								3269
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1944.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "sample/sample.render.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1385,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1233,
+								1233
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "filter/filter.frag.glsl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 650,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								140,
+								140
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/Shader Syntax (GLSL HLSL Cg)/OpenGL SL.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "shaders/scene.glsl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2802,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2667,
+								2667
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/Shader Syntax (GLSL HLSL Cg)/OpenGL SL.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 1580.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "sample/sample.setup.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1278,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "reproject/reproject.frag.glsl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2283,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1953,
+								1953
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/Shader Syntax (GLSL HLSL Cg)/OpenGL SL.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 960.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "sample/sample.frag.glsl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4647,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2072,
+								2072
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/Shader Syntax (GLSL HLSL Cg)/OpenGL SL.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1227.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 43.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.cmd-caller":
+	{
+		"height": 133.0
+	},
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 121.0
+	},
+	"output.find_results":
+	{
+		"height": 133.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 121.0
+	},
+	"pinned_build_system": "",
+	"project": "ray_tracer.sublime-project",
+	"replace":
+	{
+		"height": 75.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"exp",
+				"parser/expression.ts"
+			],
+			[
+				"par",
+				"parser/parser.ts"
+			],
+			[
+				"sta",
+				"parser/statement.ts"
+			],
+			[
+				"",
+				"~/Documents/yport-lang/parser/utils.ts"
+			],
+			[
+				"pars",
+				"parser/parser.ts"
+			],
+			[
+				"node",
+				"ast/Node.ts"
+			],
+			[
+				"parser",
+				"parser/parser.ts"
+			],
+			[
+				"te",
+				"test.ts"
+			],
+			[
+				".de",
+				".denon"
+			],
+			[
+				"test",
+				"test.ts"
+			],
+			[
+				"mod",
+				"mod.ts"
+			],
+			[
+				"parse",
+				"parser/parser.ts"
+			],
+			[
+				"pae",
+				"parser/parser.ts"
+			],
+			[
+				"std",
+				"runtime/std.js"
+			],
+			[
+				"main",
+				"tests/demos/brainf*ck_interpreter/main.yport"
+			],
+			[
+				"tod",
+				"todo.txt"
+			],
+			[
+				"dyn",
+				"type_system/DynamicArray.js"
+			],
+			[
+				"Func",
+				"ast/expression/FunctionCall.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 648.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/deno-stuff/manga/untitled.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 257.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

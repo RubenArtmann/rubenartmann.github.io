@@ -1,0 +1,1410 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"res",
+				"resolve\tlet"
+			],
+			[
+				"JS",
+				"JSZip\twarning"
+			],
+			[
+				"bu",
+				"bubbles\tparameter"
+			],
+			[
+				"transsc",
+				"transscribe"
+			],
+			[
+				"bo",
+				"boundingBox\tproperty"
+			],
+			[
+				"dow",
+				"downY\tlet"
+			],
+			[
+				"max",
+				"maxWidth"
+			],
+			[
+				"fi",
+				"filled\tlet"
+			],
+			[
+				"Uint",
+				"Uint8Array\tvar"
+			],
+			[
+				"do",
+				"downX\tlet"
+			],
+			[
+				"off",
+				"offsetTop\tproperty"
+			],
+			[
+				"oc",
+				"ocr_instances"
+			],
+			[
+				"pr",
+				"promise\tlet"
+			],
+			[
+				"ocr",
+				"ocr_instances\tlet"
+			],
+			[
+				"chil",
+				"childNodes\tproperty"
+			],
+			[
+				"ne",
+				"needsRender\tproperty"
+			],
+			[
+				"load",
+				"loadFiles\tconst"
+			],
+			[
+				"new",
+				"newImage\tlet"
+			],
+			[
+				"HTMLI",
+				"HTMLImageElement\tvar"
+			],
+			[
+				"w",
+				"width\tlet"
+			],
+			[
+				"fil",
+				"fileInput\tlet"
+			],
+			[
+				"tran",
+				"transscript\twarning"
+			],
+			[
+				"fon",
+				"fontSize\tparameter"
+			],
+			[
+				"font",
+				"fontSize\tlet"
+			],
+			[
+				"dra",
+				"drawText\twarning"
+			],
+			[
+				"crea",
+				"createElement\tmethod"
+			],
+			[
+				"bub",
+				"bubbles\twarning"
+			],
+			[
+				"o",
+				"offsets\tlet"
+			],
+			[
+				"for",
+				"for\tfor (…) {…}"
+			],
+			[
+				"ca",
+				"callback\tparameter"
+			],
+			[
+				"img",
+				"imgView\tlet"
+			],
+			[
+				"app",
+				"appendChild\tmethod"
+			],
+			[
+				"Image",
+				"ImageView\talias"
+			],
+			[
+				"get",
+				"getImageData\tmethod"
+			],
+			[
+				"draw",
+				"drawImage\tmethod"
+			],
+			[
+				"ima",
+				"imageData\tlet"
+			],
+			[
+				"content",
+				"contentTypeValue\tconst"
+			],
+			[
+				"sc",
+				"source\tTag"
+			],
+			[
+				"cons",
+				"constant_type\tproperty"
+			],
+			[
+				"con",
+				"continuation\tparameter"
+			],
+			[
+				"in",
+				"inputInstance\tlet"
+			],
+			[
+				"Jum",
+				"JumpTargetType\talias"
+			],
+			[
+				"inp",
+				"inputType\tlet"
+			],
+			[
+				"Str",
+				"StructInstance"
+			],
+			[
+				"St",
+				"StructType"
+			],
+			[
+				"glob",
+				"globalI"
+			],
+			[
+				"J",
+				"JumpJumpTargetValue"
+			],
+			[
+				"scope",
+				"scopeI"
+			],
+			[
+				"gloa",
+				"globalI"
+			],
+			[
+				"code",
+				"codeType"
+			],
+			[
+				"Tra",
+				"Transition"
+			],
+			[
+				"exi",
+				"exit_code"
+			],
+			[
+				"register",
+				"registerValues\tproperty"
+			],
+			[
+				"reg",
+				"registerValues\tproperty"
+			],
+			[
+				"Reg",
+				"RegisterStateTracker\tclass"
+			],
+			[
+				"run",
+				"runAsm\talias"
+			],
+			[
+				"clas",
+				"class\tkeyword"
+			],
+			[
+				"use",
+				"usedRegisters\tlet"
+			],
+			[
+				"var",
+				"variableStore\tlet"
+			],
+			[
+				"varia",
+				"variableStore\tlet"
+			],
+			[
+				"val",
+				"valueStore\tparameter"
+			],
+			[
+				"va",
+				"valueStore\tparameter"
+			],
+			[
+				"allo",
+				"allowedRegisters\tlet"
+			],
+			[
+				"valu",
+				"valueStore\tlet"
+			],
+			[
+				"regi",
+				"register"
+			],
+			[
+				"Trans",
+				"Transform\tinterface"
+			],
+			[
+				"value",
+				"valueStores\tproperty"
+			],
+			[
+				"regs",
+				"register"
+			],
+			[
+				"re",
+				"registerValues\tproperty"
+			],
+			[
+				"all",
+				"allowedRegisters\tparameter"
+			],
+			[
+				"Stack",
+				"StackStateTracker\tclass"
+			],
+			[
+				"Val",
+				"ValueStore"
+			],
+			[
+				"Con",
+				"ConstantStore"
+			],
+			[
+				"ac",
+				"acquireValues"
+			],
+			[
+				"sysca",
+				"syscall_id"
+			],
+			[
+				"Sta",
+				"StackValueStore"
+			],
+			[
+				"co",
+				"ConcurrentStringBuffer"
+			],
+			[
+				"Conc",
+				"ConcurrentStringBuffer"
+			],
+			[
+				"stat",
+				"statusCode\tlet"
+			],
+			[
+				"asm",
+				"asm_runner\tscript"
+			],
+			[
+				"imp",
+				"implements\tkeyword"
+			],
+			[
+				"Ass",
+				"AssemblyCode"
+			],
+			[
+				"ru",
+				"runAsm\tconst"
+			],
+			[
+				"proc",
+				"procedureScope\tlet"
+			],
+			[
+				"const",
+				"constraints"
+			],
+			[
+				"log",
+				"logExpression\tlet"
+			],
+			[
+				"pare",
+				"parentTypeRef\tlet"
+			],
+			[
+				"paren",
+				"parentTypeRef"
+			],
+			[
+				"Struc",
+				"StructType\tclass"
+			],
+			[
+				"Tp",
+				"TypeRef\tscript"
+			],
+			[
+				"proce",
+				"procedureLexicalScope\tlet"
+			],
+			[
+				"Node",
+				"NodeIdentifierExpression\talias"
+			],
+			[
+				"pre",
+				"procedure"
+			],
+			[
+				"create",
+				"createGlobalScope"
+			],
+			[
+				"func",
+				"functionScope"
+			],
+			[
+				"exp",
+				"expression"
+			],
+			[
+				"No",
+				"NodeStatement"
+			],
+			[
+				"com",
+				"compiledModule"
+			],
+			[
+				"data",
+				"data_index"
+			],
+			[
+				"format",
+				"formatString\tlet"
+			],
+			[
+				"number",
+				"number_format\tproperty"
+			],
+			[
+				"numb",
+				"numberType\tlet"
+			],
+			[
+				"Func",
+				"FunctionType\talias"
+			],
+			[
+				"typ",
+				"typeRef\tproperty"
+			],
+			[
+				"NodeS",
+				"NodeStatementList\talias"
+			],
+			[
+				"VAL",
+				"VALUE_TYPE"
+			],
+			[
+				"type",
+				"type_type"
+			],
+			[
+				"fun",
+				"functionType\tlet"
+			],
+			[
+				"out",
+				"outputTypeRef\tparameter"
+			],
+			[
+				"Type",
+				"TypeRef\talias"
+			],
+			[
+				"nu",
+				"numberType\tlet"
+			],
+			[
+				"num",
+				"number_format\tproperty"
+			],
+			[
+				"Typ",
+				"TypeRef\talias"
+			],
+			[
+				"import",
+				"import\tkeyword"
+			],
+			[
+				"oper",
+				"operatorName\tlet"
+			],
+			[
+				"op",
+				"operator\tlet"
+			],
+			[
+				"parse",
+				"parseNumberLiteralExpression\tvar"
+			],
+			[
+				"ex",
+				"extendExpressionBaseToMemberAccessExpression"
+			],
+			[
+				"ext",
+				"extendExpressionBaseToMemberAccessExpression"
+			],
+			[
+				"pars",
+				"parseExpressionBase\tvar"
+			],
+			[
+				"extend",
+				"extendExpressionToProcedureCallExpression\tconst"
+			],
+			[
+				"fin",
+				"finished\tlet"
+			],
+			[
+				"u",
+				"utils_extend"
+			],
+			[
+				"ut",
+				"utils_many\tconst"
+			],
+			[
+				"to",
+				"toSource"
+			],
+			[
+				"tO",
+				"toSource"
+			],
+			[
+				"utils",
+				"utils_extend"
+			],
+			[
+				"n",
+				"number_format\tproperty"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 1397,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "actions/download.js",
+			"settings":
+			{
+				"buffer_size": 561,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Image.js",
+			"settings":
+			{
+				"buffer_size": 3031,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "actions/select_bubble.js",
+			"settings":
+			{
+				"buffer_size": 2531,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "actions/draw_bubble.js",
+			"settings":
+			{
+				"buffer_size": 2659,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "actions/select_thought_bubble.js",
+			"settings":
+			{
+				"buffer_size": 1250,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ImageView.js",
+			"settings":
+			{
+				"buffer_size": 2476,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/nasm.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/User/js.sublime-build",
+					""
+				],
+				[
+					"Packages/User/nasm.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/nasm.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"extract",
+				"PackageResourceViewer: Extract All Packages"
+			],
+			[
+				"syntax",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"insall",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/unnamed/Documents/deno-stuff/manga",
+		"/home/unnamed/Documents/deno-stuff/manga/actions"
+	],
+	"file_history":
+	[
+		"/home/unnamed/Documents/Schule/Informatik/pass.txt",
+		"/tmp/mozilla_unnamed0/Neues_Textdokument_2.txt",
+		"/home/unnamed/.cache/.fr-SprMHa/activity/tns/events-2021-00000-of-00001.json",
+		"/home/unnamed/.cache/.fr-NAeMbe/activity/reporting/events-2021-00000-of-00001.json",
+		"/home/unnamed/.cache/.fr-fDmGMb/account/user.json",
+		"/home/unnamed/.cache/.fr-9AnZxb/account/applications/742041114508394596/application.json",
+		"/home/unnamed/.cache/.fr-T9Ez45/0.png",
+		"/home/unnamed/Documents/deno-stuff/manga/Bubble.js",
+		"/home/unnamed/Documents/deno-stuff/manga/actions/transscribe.js",
+		"/home/unnamed/Documents/deno-stuff/manga/settings.js",
+		"/home/unnamed/Documents/deno-stuff/manga/serve.ts",
+		"/home/unnamed/Documents/deno-stuff/manga/main.js",
+		"/home/unnamed/.cache/.fr-E3mhk6/0.png",
+		"/home/unnamed/.cache/.fr-ig9SO9/0.png",
+		"/home/unnamed/.cache/.fr-zd0Q2L/search.html",
+		"/tmp/mozilla_unnamed0/message.txt",
+		"/home/unnamed/Documents/scanlation/pipeline/src/main.js",
+		"/home/unnamed/Documents/scanlation/pipeline/index.html",
+		"/home/unnamed/Documents/deno-stuff/manga/ImageView.js",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/serve.ts",
+		"/home/unnamed/Documents/webgl-stuff/ray_tracer/index.html",
+		"/home/unnamed/Documents/deno-stuff/spasm/scripts.json",
+		"/home/unnamed/Documents/deno-stuff/spasm/test.test.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/mod.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/typesystem.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/ExitJumpTargetValue.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/JumpJumpTargetValue.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/JumpTargetValue.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/Value.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/JumpTargetType.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/ConstantType.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/Type.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/StructType.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/StructInstance.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/ir/Function.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/ir/../test.test.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/ir/State.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/ir/Transition.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/ir/Add.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/tests/api.test.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/asm_runner.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/AsmBinary.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/tests/exit.test.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/tests/hello_world.test.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/Transform.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/StateTracker.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/ValueStore.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/REGISTERS.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/VariableStore.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/Variable.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/Snippet.ts",
+		"/home/unnamed/Documents/asm-stuff/hello-world/main.asm",
+		"/home/unnamed/Documents/deno-stuff/spasm/AsmSnippet.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/ConcurrentStringBuffer.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/constant.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/StackStateTracker.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/AsmEmitter.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/tests/../CpuStateTracker.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/test.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/test/hello_world.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/Assembly.ts",
+		"/home/unnamed/Documents/deno-stuff/spasm/test.asm",
+		"/home/unnamed/Documents/yport-lang/scripts.json",
+		"/home/unnamed/Documents/yport-lang/values/Value.ts",
+		"/home/unnamed/Documents/yport-lang/ast/Node.ts",
+		"/home/unnamed/Documents/yport-lang/backends/interpreter/globalScope.ts",
+		"/home/unnamed/Documents/yport-lang/mod.ts",
+		"/home/unnamed/Documents/yport-lang/parser/utils.ts",
+		"/home/unnamed/Documents/yport-lang/types/constraints.ts",
+		"/home/unnamed/Documents/yport-lang/types/Type.ts",
+		"/home/unnamed/Documents/yport-lang/parser/expression.ts",
+		"/home/unnamed/Documents/yport-lang/parser/statement.ts",
+		"/home/unnamed/Documents/yport-lang/backends/interpreter/mod.ts",
+		"/home/unnamed/Documents/yport-lang/todo.md",
+		"/etc/security/limits.conf",
+		"/home/unnamed/Documents/yport-lang/backends/Backend.ts",
+		"/home/unnamed/Documents/yport-lang/tests/demos/brainf*ck_interpreter/main.yport",
+		"/home/unnamed/Documents/yport-lang/test.ts",
+		"/home/unnamed/Documents/yport-lang/tsconfig.json",
+		"/home/unnamed/Documents/yport-lang/tests/polymorph.yport",
+		"/home/unnamed/Documents/yport-lang/tests/type-introspection.yport",
+		"/home/unnamed/Documents/yport-lang/tests/demos/compiler/parser.yport",
+		"/home/unnamed/Documents/yport-lang/tests/procedures/empty.yport",
+		"/home/unnamed/Documents/yport-lang/tests/procedures/log_constant.yport",
+		"/home/unnamed/Documents/yport-lang/tests/procedures/log_input.yport",
+		"/home/unnamed/Documents/yport-lang/tests/procedures/polymorphic.yport",
+		"/home/unnamed/Documents/yport-lang/types/TypeRef.ts",
+		"/home/unnamed/Documents/yport-lang/parser/parser.ts",
+		"/home/unnamed/Documents/yport-lang/parser/PRECEDENCE.ts",
+		"/home/unnamed/Documents/yport-lang/tests/variables/assignment.yport",
+		"/home/unnamed/Documents/yport-lang/tests/variables/member_access.yport",
+		"/tmp/mozilla_unnamed0/habeEsInsWikiGeschrieben.txt",
+		"/home/unnamed/Downloads/habeEsInsWikiGeschrieben.txt",
+		"/home/unnamed/.profile",
+		"/home/unnamed/Documents/yport-lang/tests/variables/math.yport",
+		"/home/unnamed/.bashrc",
+		"/home/unnamed/Documents/yport-lang/tests/control-flow/if.yport",
+		"/home/unnamed/Documents/yport-lang/tests/control-flow/while.yport",
+		"/home/unnamed/Documents/yport-lang/.gitignore",
+		"/home/unnamed/Documents/yport-lang/tests/output/console.yport",
+		"/home/unnamed/Documents/yport-lang/todo.txt",
+		"/home/unnamed/Documents/yport-lang/tests/variables/declaration_and_assignment.yport",
+		"/home/unnamed/Documents/yport-lang/tests/variables/assertion.yport",
+		"/home/unnamed/Documents/yport-lang/types/TYPE_REGISTRY.ts",
+		"/home/unnamed/Documents/yport-lang/.denon",
+		"/home/unnamed/Documents/yport-lang/tests/variables/declaration.yport",
+		"/etc/pop-os/gdm3/custom.conf",
+		"/home/unnamed/Documents/yport-lang/values/Type.ts",
+		"/home/unnamed/.mozilla/firefox/yjwsbg18.default/chrome/userChrome.css",
+		"/home/unnamed/.wine/drive_c/users/unnamed/My Documents/My Games/Path of Exile/production_Config.ini",
+		"/home/unnamed/.wine/drive_c/Program Files (x86)/Grinding Gear Games/Path of Exile/HashCache.dat",
+		"/home/unnamed/.config/sublime-text-3/Packages/TypeScript/TypeScript.sublime-settings",
+		"/home/unnamed/.mozilla/firefox/yjwsbg18.default/chrome/userchrome.css",
+		"/home/unnamed/Documents/yport-lang/69.PNG",
+		"/home/unnamed/Documents/yport-lang/main.ts",
+		"/home/unnamed/Documents/yport-lang/ast/Assignment.ts",
+		"/home/unnamed/Documents/yport-lang/ast/ast.ts",
+		"/home/unnamed/Documents/yport-lang/ast/Block.ts",
+		"/home/unnamed/Documents/yport-lang/ast/Declaration.ts",
+		"/home/unnamed/Documents/yport-lang/ast/FunctionCallStatement.ts",
+		"/home/unnamed/Documents/yport-lang/ast/IfStatement.ts",
+		"/home/unnamed/Documents/yport-lang/ast/Module.ts",
+		"/home/unnamed/Documents/yport-lang/ast/ReturnStatement.ts",
+		"/home/unnamed/Documents/yport-lang/ast/Tag.ts",
+		"/home/unnamed/Documents/yport-lang/ast/Tags.ts",
+		"/home/unnamed/Documents/yport-lang/ast/WhileLoop.ts",
+		"/home/unnamed/Documents/yport-lang/ast/expression/Equals.ts",
+		"/home/unnamed/Documents/yport-lang/ast/expression/FunctionCall.ts"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 111.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"1",
+			"0",
+			"x",
+			"ocr_instances_qequed",
+			"}\n",
+			"value",
+			"Value",
+			"Variable",
+			"Variable:",
+			"Value",
+			"state,",
+			"asSource()",
+			"asDestination()",
+			"asDestination",
+			"freeToStack",
+			"state,",
+			"value.name",
+			"hello_world",
+			"createStructInstancer",
+			"ProcedureValue",
+			"createStructInstancer",
+			"ProcedureValue",
+			"StructValue",
+			"ProcedureValue",
+			"getMember",
+			"console.log",
+			"FunctionValue",
+			"func",
+			"Function",
+			"function",
+			"NodeL",
+			"createStructInstancer(",
+			"proc",
+			"createObjectInstancer",
+			"createOb",
+			"new NodeLiteralExpression(new StructValue(",
+			"NodeIdentifierExpression",
+			"implements",
+			"Type",
+			"console.log",
+			"parseI",
+			"NodeLiteralExpression",
+			"strea,",
+			"&quot;",
+			"\n\t\"EXPRESSION_OPERATOR_+\",",
+			"programm",
+			"argument",
+			"parseAss",
+			"src: string,",
+			"TypeRef",
+			"new_struct_literal",
+			"NodeProcedureCallStatement",
+			"();",
+			"NodeIdentifier",
+			"NodeStatementList",
+			" ",
+			"Any",
+			"= (src,index,precedence",
+			"src,index,",
+			"src,index,precedence,",
+			".js\"",
+			"MDN",
+			"process\\.stdout\\.write\\((.+)\\);",
+			"\\* as (.+?) ",
+			"*",
+			"process\\.stdout\\.write\\((.+)\\);",
+			"process\\.stdout\\.write\\(.",
+			"process.stdout.write",
+			",",
+			"\\t(.+): require\\((.+)\\)",
+			"\\t.+: require\\((.+)\\)",
+			"module\\.exports = ",
+			"module\\.export = ",
+			"const (.+) = require\\((.+)\\);",
+			"int",
+			"float",
+			"TypeReference",
+			"MemberAccess",
+			"function",
+			"get_member",
+			"expression(",
+			"getMemberType",
+			"getTypeParameter",
+			"functionCall ",
+			"function"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			":doughnut:",
+			":donut:",
+			":cookie:",
+			"ocr_instances_queued",
+			"variable",
+			"Variable",
+			"variable:",
+			"Variable",
+			"state: StateTracker,",
+			"asSource(value)",
+			"asSourcce(value)",
+			"asDestination(value)",
+			"freeRegisterToStack",
+			"state: StateTracker,",
+			"asm",
+			"getOrCreateMember",
+			"ProcedureValue",
+			"proc",
+			"Procedure",
+			"procedure",
+			"createStructInstancer(lexicalScope, ",
+			"createStructInstancer",
+			"createObjectInstancer",
+			"extends",
+			"\"",
+			"program",
+			"lexicalScope: TypeRef, src: string,",
+			"lexicalScope: Type, src: string,",
+			"NodeIdentifierExpression",
+			"NodeBlockStatement",
+			" ",
+			"any",
+			"= (src: string, index: number, precedence: number",
+			"src: string, index: number, ",
+			"src: string, index: number, precedence: number,",
+			".ts\"",
+			"Deno.stdout.writeSync(new TextEncoder().encode($1));",
+			"{default as $1} ",
+			"{default as $1}",
+			"default",
+			"Deno.stdout.writeSync(new TextEncoder().encode($1));",
+			"Deno.stdout.writeSync(new TextEncoder().encode($1))",
+			"Deno.stdout.writeSync",
+			";",
+			"export * as $1 from $2",
+			"export default ",
+			"import $1 from $2;",
+			"sint32",
+			"float32",
+			"TR"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1397,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1362,
+								1362
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 546.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "actions/download.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 561,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								262,
+								262
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Image.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3031,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								241,
+								241
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "actions/select_bubble.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2531,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2531,
+								2531
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "actions/draw_bubble.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2659,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								980,
+								980
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 546.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "actions/select_thought_bubble.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1250,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								797,
+								797
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 441.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "ImageView.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2476,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								699,
+								699
+							]
+						],
+						"settings":
+						{
+							"actual_mode": false,
+							"av_input": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 484.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 43.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.cmd-caller":
+	{
+		"height": 133.0
+	},
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 121.0
+	},
+	"output.find_results":
+	{
+		"height": 133.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 121.0
+	},
+	"pinned_build_system": "",
+	"project": "untitled.sublime-project",
+	"replace":
+	{
+		"height": 77.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"exp",
+				"parser/expression.ts"
+			],
+			[
+				"par",
+				"parser/parser.ts"
+			],
+			[
+				"sta",
+				"parser/statement.ts"
+			],
+			[
+				"",
+				"~/Documents/yport-lang/parser/utils.ts"
+			],
+			[
+				"pars",
+				"parser/parser.ts"
+			],
+			[
+				"node",
+				"ast/Node.ts"
+			],
+			[
+				"parser",
+				"parser/parser.ts"
+			],
+			[
+				"te",
+				"test.ts"
+			],
+			[
+				".de",
+				".denon"
+			],
+			[
+				"test",
+				"test.ts"
+			],
+			[
+				"mod",
+				"mod.ts"
+			],
+			[
+				"parse",
+				"parser/parser.ts"
+			],
+			[
+				"pae",
+				"parser/parser.ts"
+			],
+			[
+				"std",
+				"runtime/std.js"
+			],
+			[
+				"main",
+				"tests/demos/brainf*ck_interpreter/main.yport"
+			],
+			[
+				"tod",
+				"todo.txt"
+			],
+			[
+				"dyn",
+				"type_system/DynamicArray.js"
+			],
+			[
+				"Func",
+				"ast/expression/FunctionCall.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 759.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/webgl-stuff/ray_tracer/ray_tracer.sublime-project"
+			],
+			[
+				"ban",
+				"~/Documents/deno-stuff/bandcamp-dl/bandcamp-dl.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 257.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -75,13 +75,17 @@ const render = (canvas, gl, state)=>{
 	// 	gl.finish()
 	// 	state.sampleCount++;
 	// }
-	let diff = deltaTime-1000/15;
-	sampleCountVelocity -= diff/5000;
-	state.sampleCount += sampleCountVelocity;
-	if(sampleCountVelocity<0) {
+	let diff = deltaTime / (1000/30);
+	sampleCountVelocity /= (diff-1)/10+1;
+	if(sampleCountVelocity<0.01) {
 		state.sampleCount *= 0.5;
+		sampleCountVelocity = 0.01;
+	}
+	if(deltaTime>100) {
+		state.sampleCount = 0;
 		sampleCountVelocity = 0;
 	}
+	state.sampleCount += sampleCountVelocity;
 	sample(canvas, gl, state);
 
 	// render to screen

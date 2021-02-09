@@ -60,15 +60,33 @@ vec4 materials[SPHERE_COUNT] = vec4[SPHERE_COUNT](
 	vec4(vec3(1.0,1.0,0.5)*1000.0,1.0),//sun
 	vec4(vec3(1.0,1.0,2.0)*5.0,1.0),
 	vec4(vec3(1.0)*3.0,1.0),
-	vec4(1.0,1.0,1.0,0.0),
-	vec4(1.0,0.5,0.5,0.0),//left
-	vec4(0.5,1.0,0.5,0.0),//up
-	vec4(0.5,0.5,1.0,0.0),//right
-	vec4(1.0,1.0,1.0,0.0)//,//bottom
+	vec4(1.0,1.0,1.0,0.0)*0.7,
+	vec4(1.0,0.5,0.5,0.0)*0.7,//left
+	vec4(0.5,1.0,0.5,0.0)*0.7,//up
+	vec4(0.5,0.5,1.0,0.0)*0.7,//right
+	vec4(1.0,1.0,1.0,0.0)*0.7//,//bottom
 	// vec4(1.0,1.0,1.0,0.0)//top
 );
 
-float intersectScene(vec3 rayOrigin, vec3 rayDirection, inout vec3 hitPoint, inout vec3 norm, inout vec4 material) {
+float intersectSceneWithMaterial(vec3 rayOrigin, vec3 rayDirection, inout vec4 material) {
+	int closest = -1;
+	float closestDist = INFINITY;
+	for(int i=0; i<SPHERE_COUNT; i++) {
+		float dist = intersectSphere(rayOrigin, rayDirection, spheres[i]);
+		if(dist<closestDist) {
+			closest = i;
+			closestDist = dist;
+			material = materials[i];
+		}
+	}
+	if(closest<0) {
+		material = vec4(AMBIENT_LIGHT,0.3);
+		return closestDist;
+	}
+	return closestDist;
+}
+
+float intersectSceneWithHitpointNormalMaterial(vec3 rayOrigin, vec3 rayDirection, inout vec3 hitPoint, inout vec3 norm, inout vec4 material) {
 	int closest = -1;
 	float closestDist = INFINITY;
 	for(int i=0; i<SPHERE_COUNT; i++) {
